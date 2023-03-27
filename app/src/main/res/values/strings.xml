@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Ochy</string>
+    <string name="regvalue">Регистрация</string>
+
+    <string name="email">Email</string>
+    <string name="acc">Есть аккаунт?</string>
+    <string name="pass">Пароль</string>
+    <string name="enterpass">Подтвердите пароль</string>
+    <string name="signin">Зарегистрироваться</string>
+    <string name="signinwith">Войти с помощью</string>
+    <string name="signa">Вход</string>
+    <string name="noacc">Нет аккаунта?</string>
+    <string name="crate">Создать</string>
+    <string name="enter">Войти</string>
+    <string name="resPassText">Укажите адрес электронной почты от вашего аккаунта на OCHY. На эту почту мы пришлём код с дальнейшей инструкцией.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fastbron">Добавьте данные о пассажире, чтобы заполнять данные при покупке билета одним кликом</string>
+
+
+</resources>

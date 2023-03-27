@@ -1,0 +1,31 @@
+package com.ochy.ochy.cod;
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class User {
+    public String email, password,  surn, name, patronomyc;
+
+    public User() {
+    }
+
+    public User(String email, String password, String surn, String name, String patronomyc) {
+        this.email = email;
+        this.password = password;
+        this.surn = surn;
+        this.name = name;
+        this.patronomyc = patronomyc;
+    }
+
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("email", email);
+        result.put("password", password);
+        result.put("surn", surn);
+        result.put("name", name);
+        result.put("patronomyc", patronomyc);
+        return result;
+    }
+}

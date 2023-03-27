@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="dt">
+        <attr name="bgc" format="color"/>
+        <attr name="tC" format="color"/>
+        <attr name="hint_color" format="color"></attr>
+        <attr name="acc" format="color"></attr>
+
+        <attr name="ThemeColorMain" format="color"></attr>
+        <attr name="dividerColorTheme" format="color"></attr>
+        <attr name="posts_color" format="color"></attr>
+    </declare-styleable>
+</resources>

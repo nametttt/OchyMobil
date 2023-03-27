@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1038318461966",
+    "project_id": "ochy-272b9",
+    "storage_bucket": "ochy-272b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038318461966:android:e1953ffde3f63affb9085f",
+        "android_client_info": {
+          "package_name": "com.ochy.ochy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038318461966-ncj3f7301prvrt6v6c4opvv6tooba6lu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcPs_fO2g3oOrFkN_M7H22JtecRppwZ2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038318461966-ncj3f7301prvrt6v6c4opvv6tooba6lu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

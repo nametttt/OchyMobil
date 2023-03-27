@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:focusedByDefault="true"
+    android:background="@color/bezh"
+    tools:context=".RegisterActivity">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Регистрация"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/enticon"/>
+
+
+
+            <EditText
+
+                android:id="@+id/fio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/gray"
+                android:backgroundTint="@color/black"
+                android:importantForAutofill="no"
+                android:hint="ФИО"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/email"
+                android:hint="@string/email"
+                android:textColorHint="@color/gray"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="5dp"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:id="@+id/pass"
+
+                android:ems="10"
+                android:textColorHint="@color/gray"
+                android:backgroundTint="@color/black"
+
+                android:hint="@string/pass"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/reppass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColorHint="@color/gray"
+                android:inputType="textPassword"
+
+                android:backgroundTint="@color/black"
+                android:hint="@string/enterpass"
+
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Даю согласие на обработку персональных данных"
+                android:textSize="16sp"
+                android:checked="true"
+                android:buttonTint="#FF764A4B"
+                android:textColor="@color/black"
+                android:onClick="tanya"
+                />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:background="@drawable/gradient_button"
+                android:layout_marginTop="15dp"
+
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="@string/signin"
+                android:onClick="onRegister"
+                android:textSize="24sp" />
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:text="@string/acc"
+                android:textSize="20dp"
+                android:textColor="#FF764A4B"
+                android:textStyle="bold"
+                android:clickable="true"
+                 />
+
+
+
+
+        </TableLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
