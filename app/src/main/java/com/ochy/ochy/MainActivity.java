@@ -6,15 +6,32 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.ochy.ochy.cod.User;
+import com.ochy.ochy.cod.getSplittedPathChild;
 
 public class MainActivity extends AppCompatActivity {
 
+    SharedPreferences sPref;
+
+    TextView name, email;
+    final String SAVED_DATA = "FIO_MAIL";
     ticketFragment ticketFragment = new ticketFragment();
     ProfileFragment profileFragment = new ProfileFragment();
+    MyCabFragment myCabFragment = new MyCabFragment();
     BottomNavigationView bnv;
 
 
@@ -24,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             pushFragments("ticket", ticketFragment);
             pushFragments("profile", profileFragment);
-
-
+            pushFragments("cab", myCabFragment);
         }
         setContentView(R.layout.activity_main);
         init();
@@ -35,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
+        sPref = getPreferences(Context.MODE_PRIVATE);
         bnv = findViewById(R.id.bottomNavigationView);
         bnv.setOnNavigationItemSelectedListener(getBottom());
     }
@@ -69,12 +86,15 @@ public class MainActivity extends AppCompatActivity {
 
         Fragment profile = manager.findFragmentByTag("profile");
         Fragment ticket = manager.findFragmentByTag("ticket");
+        Fragment cab = manager.findFragmentByTag("cab");
 
 
         if (profile != null)
             ft.hide(profile);
         if (ticket != null)
             ft.hide(ticket);
+        if (cab !=null)
+            ft.hide(cab);
 
         if (tag == "profile") {
             if (profile != null)
@@ -85,6 +105,14 @@ public class MainActivity extends AppCompatActivity {
             if (ticket != null)
                 ft.show(ticket);
         }
+
+        if (tag == "cab") {
+            if (cab != null)
+                ft.show(cab);
+        }
         ft.commitAllowingStateLoss();
     }
+
+
+
 }
