@@ -2,9 +2,9 @@
 <resources>
     <style name="AppTheme"  parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/brown</item>
+        <item name="colorPrimary">@color/white</item>
         <item name="colorControlActivated">@color/bezh</item>
-        <item name="colorOnSurface">@color/hz</item>
+        <item name="colorOnSurface">#c7c7c7</item>
         <item name="colorAccent">@color/bezh</item>
 
     </style>
