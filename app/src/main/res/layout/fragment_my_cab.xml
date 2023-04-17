@@ -45,17 +45,57 @@
                             android:layout_centerInParent="true"
                             android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="15dp"
-                            android:hint="Фамилия Имя"
+                            android:hint="Фамилия"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"
                             android:textSize="18dp" />
-                    </RelativeLayout>
 
+                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:background="@drawable/settings"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/ed3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="15dp"
+                            android:hint="Имя"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="18dp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:background="@drawable/settings"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/ed4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="15dp"
+                            android:hint="Отчество"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="18dp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:background="@drawable/settings"
+                        android:layout_marginTop="15dp"
                         android:layout_height="wrap_content">
 
                         <EditText
@@ -64,10 +104,10 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:layout_marginHorizontal="10dp"
+
                             android:layout_marginTop="15dp"
                             android:hint="Почта"
                             android:textColor="@color/black"
-
                             android:textColorHint="@color/gray"
                             android:textSize="18dp" />
                     </RelativeLayout>
@@ -94,7 +134,7 @@
                 android:text="Сохранить данные"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
-                android:background="@drawable/button_add_passa"/>
+                android:background="@drawable/gradient_button"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_gravity="center"
@@ -105,7 +145,7 @@
                 android:layout_weight="1"
                 android:paddingHorizontal="40dp"
                 android:text="Удалить профиль"
-                android:textColor="#9A777C"
+                android:textColor="#FF764A4B"
                 android:textAllCaps="false"
                 android:background="@drawable/btn_exit"/>
         </LinearLayout>

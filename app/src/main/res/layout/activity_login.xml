@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:src="@drawable/enticon"/>
 
 
@@ -80,7 +80,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:background="@drawable/gradient_button"
                 android:layout_marginTop="15dp"
                 android:textColor="@color/white"

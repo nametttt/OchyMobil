@@ -6,7 +6,7 @@
         android:icon="@drawable/plane"/>
     <item
         android:id="@+id/orders"
-        android:title="Заказы"
+        android:title="Мои билеты"
         android:icon="@drawable/bilety"/>
     <item
         android:id="@+id/dopomoga"

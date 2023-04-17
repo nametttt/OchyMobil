@@ -55,7 +55,7 @@ public class MyCabFragment extends Fragment {
                         Map<String, Object> map = user1.toMap();
                         map.put("fio",ed1.getText().toString());
                         map.put("email",ed2.getText().toString());
-                        Toast.makeText(getActivity(), "Я люблю Таню но не помню пароль", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Данные изменены", Toast.LENGTH_SHORT).show();
                         //ref.child(pC.getSplittedPathChild(user.getEmail())).child("acc").updateChildren(map);
                     }
 

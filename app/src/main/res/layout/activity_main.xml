@@ -22,6 +22,6 @@
         android:layout_alignParentBottom="true"
         android:layout_height="?actionBarSize"
         android:theme="@style/AppTheme"
-        app:backgroundTint="#8d6d74"
+        app:backgroundTint="#BCA9A5"
         app:menu="@menu/bnb" />
 </RelativeLayout>
