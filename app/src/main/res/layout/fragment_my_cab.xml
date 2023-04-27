@@ -137,6 +137,7 @@
                 android:background="@drawable/gradient_button"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/tanusha"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:textSize="18dp"

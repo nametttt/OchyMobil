@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -26,12 +28,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ochy.ochy.cod.User;
 import com.ochy.ochy.cod.getSplittedPathChild;
+import com.ochy.ochy.dialog.deleteDialog;
 
 import java.util.Map;
 
 public class MyCabFragment extends Fragment {
     androidx.appcompat.widget.Toolbar mToolBar;
-    androidx.appcompat.widget.AppCompatButton btn;
+    androidx.appcompat.widget.AppCompatButton btn, btnDel;
     FirebaseUser user;
     private String splittedPathChild;
     private EditText ed1, ed2;
@@ -66,14 +69,27 @@ public class MyCabFragment extends Fragment {
                 });
             }
         });
+
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteDialog myDialogFragment = new deleteDialog();
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                //myDialogFragment.show(manager, "dialog");
+
+                FragmentTransaction transaction = manager.beginTransaction();
+                myDialogFragment.show(transaction, "dialog");
+            }
+        });
         return v;
     }
 
     private void init (View v){
         ed1 = v.findViewById(R.id.ed1);
         ed2 = v.findViewById(R.id.ed2);
-        mToolBar = v.findViewById(R.id.toolbar);
         btn = v.findViewById(R.id.saveData);
+        btnDel = v.findViewById(R.id.tanusha);
+        mToolBar = v.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(mToolBar);
         ((MainActivity)getActivity()).getSupportActionBar().setTitle("Личный кабинет");
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ochy.ochy.cod.User;
 import com.ochy.ochy.cod.getSplittedPathChild;
+import com.ochy.ochy.dialog.deleteDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     ticketFragment ticketFragment = new ticketFragment();
     ProfileFragment profileFragment = new ProfileFragment();
     MyCabFragment myCabFragment = new MyCabFragment();
+    deleteDialog deleteDialog = new deleteDialog();
+    CardFragment cardFragment = new CardFragment();
     BottomNavigationView bnv;
 
 
@@ -42,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             pushFragments("ticket", ticketFragment);
             pushFragments("profile", profileFragment);
             pushFragments("cab", myCabFragment);
+            pushFragments("deleteDialog", deleteDialog);
+            pushFragments("cardFragment", cardFragment);
         }
         setContentView(R.layout.activity_main);
         init();
@@ -87,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
         Fragment profile = manager.findFragmentByTag("profile");
         Fragment ticket = manager.findFragmentByTag("ticket");
         Fragment cab = manager.findFragmentByTag("cab");
+        Fragment deleteDialog = manager.findFragmentByTag("deleteDialog");
+        Fragment cardFragment = manager.findFragmentByTag("cardFragment");
 
 
         if (profile != null)
@@ -95,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
             ft.hide(ticket);
         if (cab !=null)
             ft.hide(cab);
+        if(deleteDialog != null){
+            ft.hide(deleteDialog);
+        }
+        if (cardFragment!= null){
+            ft.hide(cardFragment);
+        }
+
 
         if (tag == "profile") {
             if (profile != null)
@@ -109,6 +123,16 @@ public class MainActivity extends AppCompatActivity {
         if (tag == "cab") {
             if (cab != null)
                 ft.show(cab);
+        }
+
+        if (tag == "deleteDialog") {
+            if (deleteDialog != null)
+                ft.show(deleteDialog);
+        }
+
+        if (tag == "cardFragment") {
+            if (cardFragment != null)
+                ft.show(cardFragment);
         }
         ft.commitAllowingStateLoss();
     }
