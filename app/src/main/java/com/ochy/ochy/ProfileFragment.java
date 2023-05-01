@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +64,12 @@ public class ProfileFragment extends Fragment {
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tanusha( "cardFragment", cardFragment);
+                FragmentManager fragmentManager= getChildFragmentManager();
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.ft, new CardFragment());
+                fragmentTransaction.addToBackStack("profile");
+                fragmentTransaction.commit();
             }
         });
         return view;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="15dp"
+    android:background="@drawable/settings"
+    android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/ed2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#FFF3E8"
+            android:drawableRight="@drawable/clear"
+            android:text="Сбербанк **0000"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray"
+            android:textSize="18dp" />
+
+</RelativeLayout>

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bezh"
+    android:id="@+id/ft"
     tools:context=".CardFragment">
 
     <LinearLayout
@@ -29,32 +30,15 @@
             android:orientation="vertical"
             android:layout_marginHorizontal="20dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/settings"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/ed2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="15dp"
-                        android:backgroundTint="#FFF3E8"
-                        android:text="Сбербанк **0000"
-                        android:drawableRight="@drawable/clear"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/gray"
-                        android:textSize="18dp" />
-
-
-                </RelativeLayout>
+            <com.ochy.ochy.cod.ListView
+                android:id="@+id/listview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/saveData"
+                android:id="@+id/addCard"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:textSize="18dp"
