@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.ochy.ochy.cod.cardModel;
 import com.ochy.ochy.cod.cardsDataList;
 import com.ochy.ochy.cod.getSplittedPathChild;
 import com.ochy.ochy.cod.post_Card;
@@ -53,7 +54,7 @@ public class CardFragment extends Fragment {
     private  void init(View v){
         getSplittedPathChild getSplittedPathChild = new getSplittedPathChild();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        db = FirebaseDatabase.getInstance().getReference( getSplittedPathChild.getSplittedPathChild(user.getEmail())).child("cards").getRef();
+        db = FirebaseDatabase.getInstance().getReference("user").child( getSplittedPathChild.getSplittedPathChild(user.getEmail())).child("cards").getRef();
         mToolBar = v.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(mToolBar);
         ((MainActivity)getActivity()).getSupportActionBar().setTitle("Мои карты");
@@ -76,6 +77,16 @@ public class CardFragment extends Fragment {
                 fragmentTransaction.replace(R.id.ft, new AddCardFragment());
                 fragmentTransaction.addToBackStack("card"); // Добавляем в Back Stack
                 fragmentTransaction.commit();
+            }
+        });
+
+
+        list.setOnItemDeleteListener(new cardAdapterListView.OnItemDeleteListener() {
+            @Override
+            public void onItemDelete(int position) {
+                arrayList.remove(position);
+                // Обновление списка
+                list.notifyDataSetChanged();
             }
         });
 
@@ -109,9 +120,9 @@ public class CardFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (arrayList.size()>0) arrayList.clear();
                 for (DataSnapshot ds: snapshot.getChildren()){
-                    post_Card ps = ds.getValue(post_Card.class);
+                    cardModel ps = ds.getValue(cardModel.class);
                     assert ps!=null;
-                    arrayList.add(new cardsDataList(ps.name, ps.number));
+                    arrayList.add(new cardsDataList(ps.cardName, ps.cardNumb));
 
                 }
                 list.notifyDataSetChanged();

@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     MyCabFragment myCabFragment = new MyCabFragment();
     deleteDialog deleteDialog = new deleteDialog();
     CardFragment cardFragment = new CardFragment();
+    HelpFragment helpFragment = new HelpFragment();
     BottomNavigationView bnv;
 
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             pushFragments("cab", myCabFragment);
             pushFragments("deleteDialog", deleteDialog);
             pushFragments("cardFragment", cardFragment);
+            pushFragments("help", helpFragment);
         }
         setContentView(R.layout.activity_main);
         init();
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.search:
                     pushFragments("ticket", ticketFragment);
                     break;
+                case R.id.dopomoga:
+                    pushFragments("help", helpFragment);
             }
             return true;
         };
@@ -94,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         Fragment cab = manager.findFragmentByTag("cab");
         Fragment deleteDialog = manager.findFragmentByTag("deleteDialog");
         Fragment cardFragment = manager.findFragmentByTag("cardFragment");
+        Fragment helpFragment = manager.findFragmentByTag("help");
+
 
 
         if (profile != null)
@@ -107,6 +113,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (cardFragment!= null){
             ft.hide(cardFragment);
+        }
+        if (helpFragment!= null){
+            ft.hide(helpFragment);
         }
 
 
@@ -133,6 +142,11 @@ public class MainActivity extends AppCompatActivity {
         if (tag == "cardFragment") {
             if (cardFragment != null)
                 ft.show(cardFragment);
+        }
+
+        if (tag == "help") {
+            if (helpFragment != null)
+                ft.show(helpFragment);
         }
         ft.commitAllowingStateLoss();
     }

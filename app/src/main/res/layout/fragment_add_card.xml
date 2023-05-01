@@ -97,10 +97,11 @@
                         android:background="@drawable/settings"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:id="@+id/cardname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"
-                            android:text="Название карты"
+                            android:hint="Название карты"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"
                             android:paddingLeft="10dp"
@@ -115,11 +116,11 @@
                         android:background="@drawable/settings"
                         android:layout_height="wrap_content">
                             <EditText
-                                android:id="@+id/ed2"
+                                android:id="@+id/cardnum"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="#FFF3E8"
-                                android:text="Номер карты"
+                                android:hint="Номер карты"
                                 android:textColor="@color/black"
                                 android:textColorHint="@color/gray"
                                 android:paddingLeft="10dp"
@@ -142,10 +143,11 @@
                             android:background="@drawable/settings"
                             android:layout_height="wrap_content">
                             <EditText
-                                android:layout_width="wrap_content"
+                                android:id="@+id/carddate"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="#FFF3E8"
-                                android:text="Месяц/Год"
+                                android:hint="Месяц/Год"
                                 android:textColor="@color/black"
                                 android:textColorHint="@color/gray"
                                 android:paddingLeft="10dp"
@@ -160,10 +162,11 @@
                             android:background="@drawable/settings"
                             android:layout_height="wrap_content">
                             <EditText
+                                android:id="@+id/cardcvc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="#FFF3E8"
-                                android:text="CW/CVC"
+                                android:hint="CW/CVC"
                                 android:textColor="@color/black"
                                 android:textColorHint="@color/gray"
                                 android:paddingLeft="10dp"
@@ -180,10 +183,11 @@
                         android:background="@drawable/settings"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:id="@+id/cardman"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"
-                            android:text="Имя владельца на латынице"
+                            android:hint="Имя владельца на латынице"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"
                             android:paddingLeft="10dp"
@@ -194,6 +198,7 @@
             </RelativeLayout>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:textSize="18dp"
