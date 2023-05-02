@@ -30,9 +30,10 @@ public class ProfileFragment extends Fragment {
 
     MyCabFragment myCabFragment = new MyCabFragment();
     CardFragment cardFragment = new CardFragment();
+    reset_password passwords = new reset_password();
     final String SAVED_DATA = "FIO_MAIL";
     String fio, myMail;
-    TextView name, email, lk, card;
+    TextView name, email, lk, card, reset;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
@@ -61,6 +62,19 @@ public class ProfileFragment extends Fragment {
                 tanusha( "cab", myCabFragment);
             }
         });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager= getChildFragmentManager();
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.ft, new reset_password());
+                fragmentTransaction.addToBackStack("profile");
+                fragmentTransaction.commit();
+            }
+        });
+
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +95,7 @@ public class ProfileFragment extends Fragment {
         name = view.findViewById(R.id.fio);
         email = view.findViewById(R.id.email);
         lk = view.findViewById(R.id.lk);
+        reset = view.findViewById(R.id.reset);
     }
 
     private void viewData(){

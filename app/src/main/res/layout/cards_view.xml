@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/settings"
     android:layout_height="wrap_content">
+
         <EditText
             android:id="@+id/ed2"
             android:layout_width="match_parent"
@@ -12,9 +13,9 @@
             android:layout_marginTop="15dp"
             android:backgroundTint="#FFF3E8"
             android:drawableRight="@drawable/clear"
+            android:enabled="false"
             android:textColor="@color/black"
             android:textColorHint="@color/gray"
-            android:enabled="false"
             android:textSize="18dp" />
 
 </RelativeLayout>

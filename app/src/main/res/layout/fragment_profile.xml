@@ -86,6 +86,7 @@
                         android:background="@android:color/darker_gray"/>
 
                     <TextView
+                        android:id="@+id/reset"
                         android:layout_marginTop="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -158,6 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingHorizontal="40dp"
+                android:layout_marginBottom="40dp"
                 android:text="Выйти из профиля"
                 android:textColor="#FF764A4B"
                 android:textAllCaps="false"
