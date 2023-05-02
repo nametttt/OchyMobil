@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bezh"
+    tools:context=".ProfileFragment">
+
+
+    <LinearLayout
+        android:id="@+id/container_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize">
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/cardview"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Это безопасно и удобно"
+                        android:textColor="@color/black"
+
+                        android:textStyle="bold"
+
+                        android:textSize="18dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@string/cardadd"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:textAlignment="gravity"
+                        android:textSize="16dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/addcard"
+
+                android:layout_marginTop="40dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="20dp"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Данные карты"
+                        android:textSize="18dp"
+                        android:textStyle="bold"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/settings"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/cardname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#FFF3E8"
+                            android:hint="Название карты"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:paddingLeft="10dp"
+                            android:textSize="18dp" />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/settings"
+                        android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/cardnum"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="#FFF3E8"
+                                android:hint="Номер карты"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:paddingLeft="10dp"
+                                android:textSize="18dp" />
+
+                    </RelativeLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:background="@drawable/settings"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/carddate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="#FFF3E8"
+                                android:hint="Месяц/Год"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:paddingLeft="10dp"
+                                android:textSize="18dp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_weight="0.5"
+                            android:background="@drawable/settings"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/cardcvc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="#FFF3E8"
+                                android:hint="CW/CVC"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:paddingLeft="10dp"
+                                android:textSize="18dp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/settings"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/cardman"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#FFF3E8"
+                            android:hint="Имя владельца на латынице"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:paddingLeft="10dp"
+                            android:textSize="18dp" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textSize="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="40dp"
+                android:text="Сохранить данные"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:background="@drawable/gradient_button"/>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,9 +29,10 @@ public class ProfileFragment extends Fragment {
     SharedPreferences sPref;
 
     MyCabFragment myCabFragment = new MyCabFragment();
+    CardFragment cardFragment = new CardFragment();
     final String SAVED_DATA = "FIO_MAIL";
     String fio, myMail;
-    TextView name, email, lk;
+    TextView name, email, lk, card;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
@@ -55,13 +58,25 @@ public class ProfileFragment extends Fragment {
         lk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tanusha(v);
+                tanusha( "cab", myCabFragment);
+            }
+        });
+        card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager= getChildFragmentManager();
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.ft, new CardFragment());
+                fragmentTransaction.addToBackStack("profile");
+                fragmentTransaction.commit();
             }
         });
         return view;
     }
 
     private void init(View view){
+        card = view.findViewById(R.id.card);
         sPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         name = view.findViewById(R.id.fio);
         email = view.findViewById(R.id.email);
@@ -96,7 +111,7 @@ public class ProfileFragment extends Fragment {
         email.setText(u.email);
     }
 
-    public  void tanusha(View v){
-        ((MainActivity)getActivity()).pushFragments("cab", myCabFragment);
+    public  void tanusha(String tag, Fragment fr){
+        ((MainActivity)getActivity()).pushFragments(tag, fr);
     }
 }
