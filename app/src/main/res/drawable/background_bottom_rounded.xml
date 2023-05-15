@@ -1,0 +1,32 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:topRightRadius="10dp" android:bottomRightRadius="10dp"/>
+            <solid android:color="#FFF3E8"/>
+        </shape>
+    </item>
+
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:id="@android:id/background">
+                <shape android:shape="rectangle">
+                    <corners android:radius="10dp"/>
+                    <solid android:color="#CCCCCC"/> <!-- Цвет фона при нажатии -->
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item android:id="@android:id/background">
+                <shape android:shape="rectangle">
+                    <corners android:radius="10dp"/>
+                    <solid android:color="#FFF3E8"/> <!-- Цвет фона по умолчанию -->
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
+
+
+

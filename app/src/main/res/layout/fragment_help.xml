@@ -209,7 +209,9 @@
                         android:textColor="@color/black"
                         android:layout_marginTop="5dp"
                         android:height="30dp"
-                        android:text="иконка Написать на почту"
+                        android:text="Написать на почту"
+                        android:drawableLeft="@drawable/mail_ico"
+                        android:drawablePadding="10dp"
                         android:textSize="18dp"/>
                 </LinearLayout>
 

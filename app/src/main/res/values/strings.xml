@@ -13,8 +13,8 @@
     <string name="crate">Создать</string>
     <string name="enter">Войти</string>
     <string name="resPassText">Укажите адрес электронной почты от вашего аккаунта на OCHY. На эту почту мы пришлём код с дальнейшей инструкцией.</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fastbron">Добавьте данные о пассажире, чтобы заполнять данные при покупке билета одним кликом</string>
     <string name="cardadd">При покупке билета не надо каждый раз вводить данные карт - используйте автозаполнение</string>
+    <string name="add_docs">При покупке билета не надо каждый раз вводить данные пассажиров - используйте автозаполнение</string>
 
 </resources>

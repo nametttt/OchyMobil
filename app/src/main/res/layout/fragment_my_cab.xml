@@ -32,7 +32,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
+                    android:background="@drawable/addcard"
+                    android:paddingHorizontal="15dp"
                     android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Личные данные"
+                        android:textSize="26dp"
+                        android:layout_marginVertical="15dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:background="@drawable/settings"
@@ -76,7 +86,8 @@
                         android:layout_width="match_parent"
                         android:background="@drawable/settings"
                         android:layout_marginTop="15dp"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp">
 
                         <EditText
                             android:id="@+id/ed4"
@@ -92,36 +103,82 @@
 
                     </RelativeLayout>
 
-                    <RelativeLayout
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:background="@drawable/addcard"
+                android:paddingHorizontal="15dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Контактные данные"
+                    android:textSize="26dp"
+                    android:layout_marginVertical="15dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/settings"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/ed2"
                         android:layout_width="match_parent"
-                        android:background="@drawable/settings"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginHorizontal="10dp"
                         android:layout_marginTop="15dp"
-                        android:layout_height="wrap_content">
+                        android:hint="Почта"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="18dp" />
 
-                        <EditText
-                            android:id="@+id/ed2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:layout_marginHorizontal="10dp"
-
-                            android:layout_marginTop="15dp"
-                            android:hint="Почта"
-                            android:textColor="@color/black"
-                            android:textColorHint="@color/gray"
-                            android:textSize="18dp" />
-                    </RelativeLayout>
-
+                </RelativeLayout>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Присылаем письма на эту почту"
                         android:textColor="#9A777C"
-                        android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
                         android:textSize="14dp"
                         />
-                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/settings"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="15dp"
+                        android:hint="Номер телефона"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="18dp" />
+
+                </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Позвоним, если рейс отменят"
+                        android:textColor="#9A777C"
+                        android:layout_marginTop="5dp"
+                        android:textSize="14dp"
+                        android:layout_marginBottom="15dp"
+                        />
+
+
+            </LinearLayout>
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/saveData"
                 android:layout_gravity="center"
