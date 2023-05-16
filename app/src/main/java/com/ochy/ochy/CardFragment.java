@@ -1,5 +1,8 @@
 package com.ochy.ochy;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -59,6 +62,11 @@ public class CardFragment extends Fragment {
         ((AppCompatActivity)getActivity()).setSupportActionBar(mToolBar);
         ((MainActivity)getActivity()).getSupportActionBar().setTitle("Мои карты");
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Drawable navIcon = mToolBar.getNavigationIcon();
+        if (navIcon != null) {
+            navIcon.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN);
+            mToolBar.setNavigationIcon(navIcon);
+        }
         setHasOptionsMenu(true);
         arrayList = new ArrayList<cardsDataList>();
         list = new cardAdapterListView(getActivity(), arrayList);
@@ -122,7 +130,7 @@ public class CardFragment extends Fragment {
                 for (DataSnapshot ds: snapshot.getChildren()){
                     cardModel ps = ds.getValue(cardModel.class);
                     assert ps!=null;
-                    arrayList.add(new cardsDataList(ps.cardName, ps.cardNumb));
+                    arrayList.add(new cardsDataList(ps.cardNumb));
 
                 }
                 list.notifyDataSetChanged();

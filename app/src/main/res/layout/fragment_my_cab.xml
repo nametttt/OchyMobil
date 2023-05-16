@@ -15,6 +15,8 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
 
+
+
     </LinearLayout>
 
     <ScrollView
@@ -49,7 +51,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
-                            android:id="@+id/ed1"
+                            android:id="@+id/surn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -69,7 +71,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
-                            android:id="@+id/ed3"
+                            android:id="@+id/name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -90,7 +92,7 @@
                         android:layout_marginBottom="15dp">
 
                         <EditText
-                            android:id="@+id/ed4"
+                            android:id="@+id/patr"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -128,12 +130,13 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/ed2"
+                        android:id="@+id/poch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_marginHorizontal="10dp"
                         android:layout_marginTop="15dp"
+                        android:enabled="false"
                         android:hint="Почта"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
@@ -156,6 +159,8 @@
                     android:layout_height="wrap_content">
 
                     <EditText
+                        android:id="@+id/tel"
+                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"

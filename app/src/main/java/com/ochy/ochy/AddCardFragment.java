@@ -1,5 +1,8 @@
 package com.ochy.ochy;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ochy.ochy.cod.cardModel;
 import com.ochy.ochy.cod.getSplittedPathChild;
+
 
 import java.util.UUID;
 
@@ -50,6 +54,11 @@ public class AddCardFragment extends Fragment {
         ((AppCompatActivity)getActivity()).setSupportActionBar(mToolBar);
         ((MainActivity)getActivity()).getSupportActionBar().setTitle("Добавить карту");
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Drawable navIcon = mToolBar.getNavigationIcon();
+        if (navIcon != null) {
+            navIcon.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN);
+            mToolBar.setNavigationIcon(navIcon);
+        }
         setHasOptionsMenu(true);
 
         mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -73,7 +82,7 @@ public class AddCardFragment extends Fragment {
                 String tableName = UUID.randomUUID().toString();
 
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference("user").child(splittedPathChild).child("cards").child(tableName).getRef();
-                cardModel card = new cardModel(name.getText().toString(), numb.getText().toString(),
+                cardModel card = new cardModel( numb.getText().toString(),
                         date.getText().toString(),
                         cvc.getText().toString(), man.getText().toString());
                 db.setValue(card);

@@ -17,6 +17,8 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
 
+
+
     </LinearLayout>
 
     <ScrollView
@@ -91,23 +93,7 @@
                         android:textSize="18dp"
                         android:textStyle="bold"/>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="15dp"
-                        android:background="@drawable/settings"
-                        android:layout_height="wrap_content">
-                        <EditText
-                            android:id="@+id/cardname"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="#FFF3E8"
-                            android:hint="Название карты"
-                            android:textColor="@color/black"
-                            android:textColorHint="@color/gray"
-                            android:paddingLeft="10dp"
-                            android:textSize="18dp" />
 
-                    </RelativeLayout>
 
 
                     <RelativeLayout
@@ -117,6 +103,7 @@
                         android:layout_height="wrap_content">
                             <EditText
                                 android:id="@+id/cardnum"
+                                android:inputType="number"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="#FFF3E8"
@@ -144,6 +131,7 @@
                             android:layout_height="wrap_content">
                             <EditText
                                 android:id="@+id/carddate"
+                                android:inputType="number"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="#FFF3E8"
@@ -163,6 +151,7 @@
                             android:layout_height="wrap_content">
                             <EditText
                                 android:id="@+id/cardcvc"
+                                android:inputType="numberPassword"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="#FFF3E8"
@@ -187,6 +176,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"
+                            android:inputType="text"
                             android:hint="Имя владельца на латынице"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"

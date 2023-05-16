@@ -98,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         String surn = fios.split(" ")[0];
                                         String name = fios.split(" ")[1];
                                         String patron = fios.split(" ")[2];
-                                        User user = new User(emails, passww, surn, name, patron);
+                                        User user = new User(emails, passww, surn, name, patron, "");
                                         ref.child(splittedPathChild).setValue(user);
                                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                                 startActivity(intent);

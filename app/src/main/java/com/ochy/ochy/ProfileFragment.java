@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,14 +29,11 @@ import com.ochy.ochy.cod.getSplittedPathChild;
 
 public class ProfileFragment extends Fragment {
     SharedPreferences sPref;
-
     MyCabFragment myCabFragment = new MyCabFragment();
-    CardFragment cardFragment = new CardFragment();
-    reset_password passwords = new reset_password();
     final String SAVED_DATA = "FIO_MAIL";
-    String fio, myMail;
     TextView name, email, lk, card, reset;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    Button btn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,12 +55,7 @@ public class ProfileFragment extends Fragment {
         else {
             viewData();
         }
-        lk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tanusha( "cab", myCabFragment);
-            }
-        });
+
 
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,12 +84,34 @@ public class ProfileFragment extends Fragment {
     }
 
     private void init(View view){
+
         card = view.findViewById(R.id.card);
         sPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         name = view.findViewById(R.id.fio);
         email = view.findViewById(R.id.email);
         lk = view.findViewById(R.id.lk);
         reset = view.findViewById(R.id.reset);
+        btn = view.findViewById(R.id.addpass);
+
+
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager  fragmentManager= getParentFragmentManager();
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.ft, new AddDocFragment());
+                fragmentTransaction.addToBackStack("prof"); // Добавляем в Back Stack
+                fragmentTransaction.commit();
+            }
+        });
+        lk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tanusha( "cab", myCabFragment);
+            }
+        });
     }
 
     private void viewData(){

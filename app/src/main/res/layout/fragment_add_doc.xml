@@ -17,6 +17,8 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
 
+
+
     </LinearLayout>
 
     <ScrollView
@@ -323,6 +325,7 @@
                 android:text="Сохранить данные"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/gradient_button"/>
         </LinearLayout>
     </ScrollView>

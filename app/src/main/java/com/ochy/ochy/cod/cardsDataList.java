@@ -1,20 +1,15 @@
 package com.ochy.ochy.cod;
 
 public class cardsDataList {
-    private String cardName;
-    private String cardNumber;
+    private String cardNumb;
 
 
-    public cardsDataList(String cardName, String cardNumber) {
-        this.cardName = cardName;
-        this.cardNumber = cardNumber;
+    public cardsDataList(String cardNumb) {
+        this.cardNumb = cardNumb;
     }
 
-    public String getCardName() {
-        return cardName;
-    }
 
     public String getCardNumber() {
-        return cardNumber;
+        return cardNumb;
     }
 }
