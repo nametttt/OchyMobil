@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bezh"
+    tools:context=".HelpFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="35dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginHorizontal="10dp"
+                        android:textAlignment="center"
+                        android:text="Изменение рейсов"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginTop="40dp"
+                    android:minHeight="40dp"
+                    android:background="@drawable/settings">
+
+                    <com.ochy.ochy.cod.custom_spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

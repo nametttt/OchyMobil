@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".MainAdmin">
+
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?actionBarSize"
+        >
+
+    </FrameLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        style="@style/AppTheme"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="?actionBarSize"
+        android:theme="@style/AppTheme"
+        app:backgroundTint="#BCA9A5"
+        app:menu="@menu/admin" />
+</RelativeLayout>
