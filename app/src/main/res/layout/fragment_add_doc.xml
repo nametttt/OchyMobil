@@ -99,7 +99,7 @@
                         android:background="@drawable/settings"
                         android:layout_height="wrap_content">
                         <EditText
-                            android:id="@+id/cardname"
+                            android:id="@+id/docSurn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"
@@ -118,7 +118,7 @@
                         android:background="@drawable/settings"
                         android:layout_height="wrap_content">
                         <EditText
-                            android:id="@+id/cardnum"
+                            android:id="@+id/docName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"
@@ -136,6 +136,7 @@
                         android:background="@drawable/settings"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:id="@+id/docPatron"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"
@@ -153,6 +154,8 @@
                         android:background="@drawable/settings"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:inputType="date"
+                            android:id="@+id/docBirth"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"
@@ -170,6 +173,8 @@
                         android:background="@drawable/settings"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:id="@+id/docCitizen"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"
@@ -189,67 +194,56 @@
                         >
 
 
-                            <CheckBox
-                                android:layout_weight="0.5"
-                                android:id="@+id/carddate"
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/male"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:paddingVertical="5dp"
+                                android:layout_weight="0.5"
                                 android:background="@drawable/background_left_rounded"
                                 android:text="Мужчина"
-                                android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textColorHint="@color/gray"
-                                android:paddingLeft="10dp"
-
-                                android:textStyle="normal"
-                                android:textSize="18dp"
-                                android:button="@null"
-                                android:drawableLeft="@drawable/man_ico"/>
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/black" /> <!-- Черта между кнопками -->
-
-
-                            <CheckBox
-                                android:id="@+id/cardcvc"
-                                android:layout_weight="0.5"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/background_bottom_rounded"
-                                android:text="Женщина"
-                                android:button="@null"
                                 android:paddingVertical="5dp"
                                 android:textSize="18dp"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black"
                                 android:textColorHint="@color/gray"
                                 android:paddingLeft="10dp"
-                                android:drawableLeft="@drawable/not_man_ico"/>
+                                android:layout_gravity="center_vertical"
+                                android:button="@drawable/man_ico" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/black" /> <!-- Черта между кнопками -->
+
+                            <RadioButton
+                                android:id="@+id/female"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/background_bottom_rounded"
+                                android:text="Женщина"
+                                android:paddingVertical="5dp"
+                                android:textSize="18dp"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:paddingLeft="10dp"
+                                android:layout_gravity="center_vertical"
+                                android:button="@drawable/not_man_ico" />
+
+                        </RadioGroup>
+
 
 
                     </LinearLayout>
 
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="15dp"
-                        android:background="@drawable/settings"
-                        android:layout_height="wrap_content">
-                        <EditText
-                            android:id="@+id/cardman"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="#FFF3E8"
-                            android:hint="Имя владельца на латынице"
-                            android:textColor="@color/black"
-                            android:textColorHint="@color/gray"
-                            android:paddingLeft="10dp"
-                            android:textSize="18dp" />
 
-                    </RelativeLayout>
                 </LinearLayout>
             </RelativeLayout>
 
@@ -285,6 +279,7 @@
                         android:layout_height="wrap_content">
 
                         <com.ochy.ochy.cod.custom_spinner
+                            android:id="@+id/custom_spinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             />
@@ -298,6 +293,9 @@
                         android:background="@drawable/settings"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:inputType="number"
+                            android:id="@+id/docNumber"
+                            android:maxLength="16"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"

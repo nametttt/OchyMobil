@@ -1,4 +1,3 @@
-
 package com.ochy.ochy.cod;
 
 import android.content.Context;
@@ -13,9 +12,10 @@ import android.widget.ListView;
 
 import com.ochy.ochy.R;
 
-public class custom_spinner extends LinearLayout{
+public class custom_spinner extends LinearLayout {
     private EditText spinnerEditText;
     private ListView spinnerListView;
+    private ArrayAdapter<String> adapter;
 
     public custom_spinner(Context context) {
         super(context);
@@ -49,13 +49,19 @@ public class custom_spinner extends LinearLayout{
                 }
             }
         });
+
+        spinnerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = adapter.getItem(position);
+                spinnerEditText.setText(selectedItem);
+                spinnerListView.setVisibility(View.GONE);
+            }
+        });
     }
 
     public void setAdapter(ArrayAdapter<String> adapter) {
+        this.adapter = adapter;
         spinnerListView.setAdapter(adapter);
-    }
-
-    public void setOnItemClickListener(AdapterView.OnItemClickListener listener) {
-        spinnerListView.setOnItemClickListener(listener);
     }
 }

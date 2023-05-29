@@ -1,15 +1,15 @@
 package com.ochy.ochy;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,14 +17,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.ochy.ochy.cod.cardsDataList;
+import com.ochy.ochy.cod.docDataList;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class cardAdapterListView  extends ArrayAdapter<cardsDataList> {
+public class docAdapterListView  extends ArrayAdapter<docDataList> {
 
-    private OnItemDeleteListener onItemDeleteListener;
 
-    public cardAdapterListView(@NonNull Context context, ArrayList<cardsDataList> arrayList){
+    private cardAdapterListView.OnItemDeleteListener onItemDeleteListener;
+
+    public docAdapterListView(@NonNull Context context, ArrayList<docDataList> arrayList){
         super(context, 0, arrayList);
     }
 
@@ -33,7 +36,9 @@ public class cardAdapterListView  extends ArrayAdapter<cardsDataList> {
         void onItemDelete(int position);
     }
 
-    public void setOnItemDeleteListener(OnItemDeleteListener onItemDeleteListener) {
+
+
+    public void setOnItemDeleteListener(cardAdapterListView.OnItemDeleteListener onItemDeleteListener) {
         this.onItemDeleteListener = onItemDeleteListener;
     }
 
@@ -47,18 +52,23 @@ public class cardAdapterListView  extends ArrayAdapter<cardsDataList> {
 
         // of the recyclable view is null then inflate the custom layout for the same
         if (currentItemView == null) {
-            currentItemView = LayoutInflater.from(getContext()).inflate(R.layout.cards_view, parent, false);
+            currentItemView = LayoutInflater.from(getContext()).inflate(R.layout.docs_view, parent, false);
         }
 
         // get the position of the view from the ArrayAdapter
-        cardsDataList currentNumberPosition = getItem(position);
+        docDataList currentNumberPosition = getItem(position);
 
         // then according to the position of the view assign the desired image for the same
 
 
         // then according to the position of the view assign the desired TextView 1 for the same
-        EditText textView1 = currentItemView.findViewById(R.id.ed2);
-        textView1.setText(currentNumberPosition.getCardNumber());
+        EditText textView1 = currentItemView.findViewById(R.id.doc_name);
+        TextView text = currentItemView.findViewById(R.id.doc_type);
+        text.setText(currentNumberPosition.getDocType());
+        textView1.setText(currentNumberPosition.getDocDocFIO());
+
+
+
 
         // then return the recyclable view
         return currentItemView;

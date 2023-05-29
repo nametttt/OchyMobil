@@ -21,8 +21,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ochy.ochy.cod.User;
+import com.ochy.ochy.cod.docDataList;
+import com.ochy.ochy.cod.docsModel;
 import com.ochy.ochy.cod.getSplittedPathChild;
 import com.ochy.ochy.dialog.deleteDialog;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
     HelpFragment helpFragment = new HelpFragment();
     BottomNavigationView bnv;
 
+    ArrayList<docDataList> arrayList;
+    private  docAdapterListView list;
+    private com.ochy.ochy.cod.ListView listView;
+    private boolean isDataLoaded = false;
+    MainActivity mainActivity;
+
+    DatabaseReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +69,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
+        getSplittedPathChild getSplittedPathChild = new getSplittedPathChild();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         sPref = getPreferences(Context.MODE_PRIVATE);
         bnv = findViewById(R.id.bottomNavigationView);
         bnv.setOnNavigationItemSelectedListener(getBottom());
+
     }
 
 
@@ -150,6 +164,9 @@ public class MainActivity extends AppCompatActivity {
         }
         ft.commitAllowingStateLoss();
     }
+
+
+
 
 
 
