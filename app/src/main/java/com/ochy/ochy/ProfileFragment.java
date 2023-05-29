@@ -1,6 +1,7 @@
 package com.ochy.ochy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -49,6 +50,8 @@ public class ProfileFragment extends Fragment {
     private com.ochy.ochy.cod.ListView listView;
     MainActivity mainActivity;
     TextView text;
+
+    Button exit;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -105,6 +108,7 @@ public class ProfileFragment extends Fragment {
         sPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         name = view.findViewById(R.id.fio);
         email = view.findViewById(R.id.email);
+        exit = view.findViewById(R.id.exit);
         lk = view.findViewById(R.id.lk);
         text =  view.findViewById(R.id.text);
         reset = view.findViewById(R.id.reset);
@@ -140,6 +144,17 @@ public class ProfileFragment extends Fragment {
                 arrayList.remove(position);
                 // Обновление списка
                 list.notifyDataSetChanged();
+            }
+        });
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent mainIntent = new Intent(getContext(), loginActivity.class);
+                getActivity().startActivity(mainIntent);
+
+                getActivity().finish();
             }
         });
     }

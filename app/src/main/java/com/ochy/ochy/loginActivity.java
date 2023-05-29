@@ -19,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ochy.ochy.cod.getEmail;
 
+import java.util.Objects;
+
 public class loginActivity extends AppCompatActivity {
 
     TextView txt;
@@ -80,6 +82,15 @@ public class loginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             if (task.isSuccessful()) {
                                 assert user != null;
+                                if (Objects.equals(user.getEmail(), "ya@gmail.com")){
+                                    Intent mainIntent = new Intent(loginActivity.this, MainAdmin.class);
+                                    loginActivity.this.startActivity(mainIntent);
+
+                                    loginActivity.this.finish();
+
+
+                                    return;
+                                }
                                 Intent x = new Intent(loginActivity.this, MainActivity.class);
                                 startActivity(x);
                                 finish();

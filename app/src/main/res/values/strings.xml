@@ -16,6 +16,109 @@
     <string name="fastbron">Добавьте данные о пассажире, чтобы заполнять данные при покупке билета одним кликом</string>
     <string name="cardadd">При покупке билета не надо каждый раз вводить данные карт - используйте автозаполнение</string>
     <string name="add_docs">При покупке билета не надо каждый раз вводить данные пассажиров - используйте автозаполнение</string>
+
+    <string-array name="cities_array">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Екатеринбург</item>
+        <item>Новосибирск</item>
+        <item>Казань</item>
+        <item>Нижний Новгород</item>
+        <item>Челябинск</item>
+        <item>Самара</item>
+        <item>Омск</item>
+        <item>Ростов-на-Дону</item>
+        <item>Уфа</item>
+        <item>Красноярск</item>
+        <item>Пермь</item>
+        <item>Волгоград</item>
+        <item>Краснодар</item>
+        <item>Воронеж</item>
+        <item>Саратов</item>
+        <item>Тюмень</item>
+        <item>Ижевск</item>
+        <item>Барнаул</item>
+        <item>Иркутск</item>
+        <item>Ульяновск</item>
+        <item>Хабаровск</item>
+        <item>Ярославль</item>
+        <item>Владивосток</item>
+        <item>Махачкала</item>
+        <item>Томск</item>
+        <item>Оренбург</item>
+        <item>Кемерово</item>
+        <item>Новокузнецк</item>
+        <item>Рязань</item>
+        <item>Астрахань</item>
+        <item>Набережные Челны</item>
+        <item>Пенза</item>
+        <item>Киров</item>
+        <item>Липецк</item>
+        <item>Чебоксары</item>
+        <item>Балашиха</item>
+        <item>Калининград</item>
+        <item>Тула</item>
+        <item>Курск</item>
+        <item>Севастополь</item>
+        <item>Сочи</item>
+        <item>Ставрополь</item>
+        <item>Улан-Удэ</item>
+        <item>Тверь</item>
+        <item>Магнитогорск</item>
+        <item>Иваново</item>
+        <item>Брянск</item>
+        <item>Сочи</item>
+        <item>Владимир</item>
+        <item>Архангельск</item>
+        <item>Кострома</item>
+        <item>Вологда</item>
+        <item>Курган</item>
+        <item>Астрахань</item>
+        <item>Иваново</item>
+        <item>Брянск</item>
+        <item>Тула</item>
+        <item>Курск</item>
+        <item>Рязань</item>
+        <item>Ульяновск</item>
+        <item>Пенза</item>
+        <item>Тверь</item>
+        <item>Магнитогорск</item>
+        <item>Ярославль</item>
+        <item>Набережные Челны</item>
+        <item>Ставрополь</item>
+        <item>Кемерово</item>
+        <item>Новокузнецк</item>
+        <item>Липецк</item>
+        <item>Балашиха</item>
+        <item>Северодвинск</item>
+        <item>Тольятти</item>
+        <item>Калининград</item>
+        <item>Чита</item>
+        <item>Братск</item>
+        <item>Орёл</item>
+        <item>Сургут</item>
+        <item>Владикавказ</item>
+        <item>Смоленск</item>
+        <item>Белгород</item>
+        <item>Волжский</item>
+        <item>Стерлитамак</item>
+        <item>Армавир</item>
+        <item>Калуга</item>
+        <item>Владимир</item>
+        <item>Курган</item>
+        <item>Бийск</item>
+        <item>Петрозаводск</item>
+        <item>Красногорск</item>
+        <item>Мытищи</item>
+        <item>Люберцы</item>
+        <item>Химки</item>
+        <item>Реутов</item>
+        <item>Балашиха</item>
+        <item>Краснодар</item>
+        <item>Оренбург</item>
+        <item>Липецк</item>
+        <item>Чебоксары</item>
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

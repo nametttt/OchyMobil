@@ -43,7 +43,6 @@ public class AddCardFragment extends Fragment {
 
 
     private void init (View v){
-        name = v.findViewById(R.id.cardname);
         numb = v.findViewById(R.id.cardnum);
         date = v.findViewById(R.id.carddate);
         cvc = v.findViewById(R.id.cardcvc);

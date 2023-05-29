@@ -35,6 +35,16 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 if (firebaseUser!=null) {
                         assert firebaseUser!=null;
+                        if (Objects.equals(firebaseUser.getEmail(), "ya@gmail.com")){
+                            Intent mainIntent = new Intent(SplashScreen.this, MainAdmin.class);
+                            SplashScreen.this.startActivity(mainIntent);
+
+                            SplashScreen.this.finish();
+
+                            overridePendingTransition(R.anim.exiting, R.anim.entering);
+
+                            return;
+                        }
                         Intent mainIntent = new Intent(SplashScreen.this, MainActivity.class);
                         SplashScreen.this.startActivity(mainIntent);
 
