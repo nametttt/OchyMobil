@@ -50,7 +50,7 @@ public class MainAdmin extends AppCompatActivity {
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.framelayout, fragment); // Замените R.id.fragmentContainer на идентификатор контейнера фрагментов в вашей макете
+        fragmentTransaction.replace(R.id.framelayout, fragment);
         fragmentTransaction.commit();
     }
 
