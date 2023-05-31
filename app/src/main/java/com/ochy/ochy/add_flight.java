@@ -72,7 +72,7 @@ public class add_flight extends Fragment {
                 String splittedPathChild = pC.getSplittedPathChild(user.getEmail());
                 String tableName = UUID.randomUUID().toString();
 
-                DatabaseReference db = FirebaseDatabase.getInstance().getReference(" flight").child(tableName).getRef();
+                DatabaseReference db = FirebaseDatabase.getInstance().getReference("flight").child(tableName).getRef();
                 List<String> seats = new ArrayList<>(Collections.nCopies(36, ""));
                 flightModel flight = new flightModel(otprcity.getText().toString(),
                         dateotpr.getText().toString(),
@@ -120,6 +120,11 @@ public class add_flight extends Fragment {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dateSetListener,
                 calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+
+        datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+
+        // Ограничение выбора даты до текущей даты плюс один месяц
+        calendar.add(Calendar.MONTH, 1);
         datePickerDialog.show();
     }
 

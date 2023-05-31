@@ -27,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.collection.LLRBNode;
 import com.ochy.ochy.cod.FlightAdapterRecyclerView;
@@ -38,6 +39,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class ticketFragment extends Fragment {
@@ -61,7 +63,7 @@ public class ticketFragment extends Fragment {
     }
 
     private void init(View v) {
-        db = FirebaseDatabase.getInstance().getReference(" flight").getRef();
+        db = FirebaseDatabase.getInstance().getReference("flight").getRef();
         arrayList = new ArrayList<>();
         adapter = new FlightAdapterRecyclerView(getContext(), arrayList);
         recyclerView = v.findViewById(R.id.res);
@@ -96,7 +98,7 @@ public class ticketFragment extends Fragment {
                     int position = rv.getChildAdapterPosition(child);
                     flightDataList clickedItem = arrayList.get(position);
                     flightModel convertedItem = convertToFlightModel(clickedItem);
-                    DatabaseReference flightRef = FirebaseDatabase.getInstance().getReference().child(" flight");
+                    DatabaseReference flightRef = FirebaseDatabase.getInstance().getReference().child("flight");
 
                     flightRef.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -152,8 +154,13 @@ public class ticketFragment extends Fragment {
                 String selectedDate = DateFormat.format("dd.MM.yyyy", calendar).toString();
                 date_picker.setText(selectedDate);
                 date_picker.setTextColor(Color.BLACK);
+                updateRecyclerViewData(selectedDate);
             }
         }, year, month, dayOfMonth);
+
+        datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+
+        calendar.add(Calendar.MONTH, 1);
 
         datePickerDialog.show();
     }
@@ -182,15 +189,40 @@ public class ticketFragment extends Fragment {
                     long hours = duration.toHours() % 24;
                     long minutes = duration.toMinutes() % 60;
 
+                    List<String> seats = ps.seats;
+                    int emptyCount = 0;
+
+                    for (String seat : seats) {
+                        if (seat.equals("")) {
+                            emptyCount++;
+                        }
+                    }
                     String difference;
+                    String emptyCountString = String.valueOf(emptyCount);
 
                     if (days > 0) {
-                        difference = String.format("%d дней, %d часов", days, hours);
+                        difference = String.format("%d дней", days);
+                        if (hours > 0) {
+                            if (minutes > 0) {
+                                difference += String.format(", %d часов, %d минут", hours, minutes);
+                            } else {
+                                difference += String.format(", %d часов", hours);
+                            }
+                        }
+                    } else if (hours > 0) {
+                        if (minutes > 0) {
+                            difference = String.format("%d часов, %d минут", hours, minutes);
+                        } else {
+                            difference = String.format("%d часов", hours);
+                        }
+                    } else if (minutes > 0) {
+                        difference = String.format("%d минут", minutes);
                     } else {
-                        difference = String.format("%d часов, %d минут", hours, minutes);
+                        difference = "0 минут";
                     }
 
-                    arrayList.add(new flightDataList(ps.cost+" ₽", ps.otpr_city + " ➔ " + ps.prib_city, formattedDateTime1 + " ➔ " + formattedDateTime2, "5", difference));
+
+                    arrayList.add(new flightDataList(ps.cost+" ₽", ps.otpr_city + " ➔ " + ps.prib_city, formattedDateTime1 + " ➔ " + formattedDateTime2, emptyCountString + " мест", difference));
 
                 }
                 adapter.notifyDataSetChanged();
@@ -203,4 +235,77 @@ public class ticketFragment extends Fragment {
         };
         db.addValueEventListener(valueEventListener);
     }
+
+    private void updateRecyclerViewData(String selectedDate) {
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (arrayList.size() > 0) {
+                    arrayList.clear();
+                }
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    flightModel ps = ds.getValue(flightModel.class);
+                    assert ps != null;
+
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+                    LocalDateTime dateTime1 = LocalDateTime.parse(ps.date_otpr, formatter);
+                    LocalDateTime dateTime2 = LocalDateTime.parse(ps.date_prib, formatter);
+
+                    DateTimeFormatter f = DateTimeFormatter.ofPattern("d MMMM H:mm", new Locale("ru"));
+                    String formattedDateTime1 = dateTime1.format(f);
+                    String formattedDateTime2 = dateTime2.format(f);
+
+                    Duration duration = Duration.between(dateTime1, dateTime2);
+                    long days = duration.toDays();
+                    long hours = duration.toHours() % 24;
+                    long minutes = duration.toMinutes() % 60;
+
+                    List<String> seats = ps.seats;
+                    int emptyCount = 0;
+
+                    for (String seat : seats) {
+                        if (seat.equals("")) {
+                            emptyCount++;
+                        }
+                    }
+                    String difference;
+                    String emptyCountString = String.valueOf(emptyCount);
+
+                    if (days > 0) {
+                        difference = String.format("%d дней", days);
+                        if (hours > 0) {
+                            if (minutes > 0) {
+                                difference += String.format(", %d часов, %d минут", hours, minutes);
+                            } else {
+                                difference += String.format(", %d часов", hours);
+                            }
+                        }
+                    } else if (hours > 0) {
+                        if (minutes > 0) {
+                            difference = String.format("%d часов, %d минут", hours, minutes);
+                        } else {
+                            difference = String.format("%d часов", hours);
+                        }
+                    } else if (minutes > 0) {
+                        difference = String.format("%d минут", minutes);
+                    } else {
+                        difference = "0 минут";
+                    }
+
+                    arrayList.add(new flightDataList(ps.cost + " ₽", ps.otpr_city + " ➔ " + ps.prib_city, formattedDateTime1 + " ➔ " + formattedDateTime2, emptyCountString + " мест", difference));
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Обработка ошибки при чтении данных из Firebase
+            }
+        };
+
+        // Применение фильтрации по выбранной дате
+        Query query = db.orderByChild("date_otpr").startAt(selectedDate).endAt(selectedDate + "\uf8ff");
+        query.addListenerForSingleValueEvent(valueEventListener);
+    }
+
 }
