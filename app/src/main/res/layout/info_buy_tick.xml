@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/btn_ticket_info_buy"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/cost"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#9A777C"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:text="7523₽ "/>
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="right"
+                android:layout_gravity="right"
+                android:textColor="#9A777C"
+                android:text="OCHY"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/marshr"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="Чебоксары → Казань"
+            />
+
+        <TextView
+            android:id="@+id/vremya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:text="12 мая 8:30 → 13 мая 13:30 "
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            >
+            <TextView
+                android:id="@+id/free_places"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="Есть 23 места"
+                />
+
+            <TextView
+                android:id="@+id/durations"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:textAlignment="gravity"
+                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="5 ч в пути"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

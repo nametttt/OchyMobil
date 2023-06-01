@@ -55,7 +55,7 @@ public class FlightViewFragment extends Fragment {
     }
 
     private void init(View v){
-        db = FirebaseDatabase.getInstance().getReference(" flight").getRef();
+        db = FirebaseDatabase.getInstance().getReference("flight").getRef();
         arrayList = new ArrayList<flightDataList>();
         list = new flightAdapterListView(getActivity(), arrayList);
         listView = v.findViewById(R.id.listview);
@@ -66,6 +66,7 @@ public class FlightViewFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 add_flight add_flight = new add_flight();
+
                 FragmentManager fragmentManager = getParentFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.framelayout, add_flight); // Замените R.id.fragmentContainer на идентификатор контейнера фрагментов в вашей макете

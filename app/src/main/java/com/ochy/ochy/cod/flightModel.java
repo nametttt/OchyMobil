@@ -63,7 +63,7 @@ public class flightModel {
     private static List<String> generateSeats() {
         List<String> seats = new ArrayList<>();
         for (int i = 1; i <= 36; i++) {
-            seats.add("Место " + i);
+            seats.add("");
         }
         return seats;
     }
@@ -81,7 +81,6 @@ public class flightModel {
                 date_otpr.equals(other.date_otpr) &&
                 prib_city.equals(other.prib_city) &&
                 date_prib.equals(other.date_prib) &&
-                cost.equals(other.cost) &&
-                seats.equals(other.seats);
+                cost.equals(other.cost);
     }
 }
