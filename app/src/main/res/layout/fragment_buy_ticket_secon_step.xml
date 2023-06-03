@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bezh"
+    tools:context=".BuyTicketSeconStepFragment">
+
+    <LinearLayout
+        android:id="@+id/container_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+
+
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp">
+                <TextView
+                    android:layout_width="0dp"
+
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Покупка билета"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:textSize="16sp"
+                    android:gravity="right"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="Шаг 2 из 2"/>
+            </LinearLayout>
+
+                <include layout="@layout/seats_select" android:id="@+id/seats_select"/>
+
+                <include layout="@layout/payment_ticket"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textSize="18dp"
+                android:id="@+id/addpass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="40dp"
+                android:text="К оплате"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/gradient_button"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</FrameLayout>

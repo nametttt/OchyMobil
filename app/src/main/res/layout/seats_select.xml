@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:background="@drawable/settings"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выбор места"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5">
+
+
+            <CheckBox
+                android:button="@null"
+                android:enabled="false"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+
+                android:background="@drawable/temnee" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.8"
+                android:text="Выбрано"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="gravity"
+            android:gravity="right"
+            android:layout_gravity="right"
+            android:layout_weight="0.5">
+
+
+            <CheckBox
+                android:button="@null"
+                android:layout_width="0dp"
+                android:enabled="false"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@drawable/svetlee" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.8"
+                android:text="Свободно"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="A"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="B"
+            android:layout_marginHorizontal="10dp"
+
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="C"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="D"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="E"
+            android:layout_marginHorizontal="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="F"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <CheckBox
+            android:id="@+id/chc_1"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_2"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_3"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <CheckBox
+            android:id="@+id/chc_4"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_5"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_6"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false">
+
+        <CheckBox
+            android:id="@+id/chc_7"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_8"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_9"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="2"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <CheckBox
+            android:id="@+id/chc_10"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_11"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_12"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+             />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <CheckBox
+            android:id="@+id/chc_13"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+
+        <CheckBox
+            android:id="@+id/chc_14"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_15"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="3"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <CheckBox
+            android:id="@+id/chc_16"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_17"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_18"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false">
+
+        <CheckBox
+            android:id="@+id/chc_19"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_20"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_21"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="4"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <CheckBox
+            android:id="@+id/chc_22"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_23"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_24"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <CheckBox
+            android:id="@+id/chc_25"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_26"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_27"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="5"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <CheckBox
+            android:id="@+id/chc_28"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_29"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_30"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false">
+
+        <CheckBox
+            android:id="@+id/chc_31"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_32"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_33"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+             />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.142"
+            android:text="6"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <CheckBox
+            android:id="@+id/chc_34"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_35"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:layout_marginHorizontal="10dp"
+            android:enabled="false"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+        <CheckBox
+            android:id="@+id/chc_36"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.142"
+            android:background="@drawable/button_seat_svetl"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

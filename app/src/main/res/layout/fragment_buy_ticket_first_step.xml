@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="10dp"
         >
 
 
@@ -93,6 +93,10 @@
 
 
         <include android:id="@+id/docs_buy1" layout="@layout/docs_buy"/>
+        <include android:id="@+id/docs_buy2" layout="@layout/docs_buy" android:visibility="gone"/>
+        <include android:id="@+id/docs_buy3" layout="@layout/docs_buy" android:visibility="gone"/>
+        <include android:id="@+id/docs_buy4" layout="@layout/docs_buy" android:visibility="gone"/>
+        <include android:id="@+id/docs_buy5" layout="@layout/docs_buy" android:visibility="gone"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_gravity="center"
@@ -102,7 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="40dp"
-            android:text="Добавить пассажира"
+            android:text="Перейти к выбору места"
             android:textColor="@color/white"
             android:textAllCaps="false"
             android:layout_marginBottom="20dp"

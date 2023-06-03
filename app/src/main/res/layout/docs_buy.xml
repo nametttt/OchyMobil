@@ -9,6 +9,7 @@
         android:background="@drawable/btn_ticket_info_buy">
 
         <TextView
+            android:id="@+id/passData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"

@@ -59,6 +59,7 @@ public class ticketFragment extends Fragment {
     private int selectedAdultCount = 1;
     private int selectedTeenagerCount = 0;
     private int selectedInfantCount = 0;
+    int quantity=1;
     RecyclerView recyclerView;
 
     DatabaseReference db;
@@ -100,6 +101,7 @@ public class ticketFragment extends Fragment {
 
         date_picker = v.findViewById(R.id.date_picker);
         passajers_picker = v.findViewById(R.id.passajers_picker);
+        passajers_picker.setText(quantity+" пассажиров");
         fromCity = v.findViewById(R.id.fromCity);
         toCity = v.findViewById(R.id.toCity);
         fromCity.setAdapter(cityAdapter);
@@ -156,6 +158,7 @@ public class ticketFragment extends Fragment {
                                         args.putString("time", flightDataList.getDate());
                                         args.putString("free_places", flightDataList.getPlaces());
                                         args.putString("duration",flightDataList.getDuration());
+                                        args.putString("pas", passajers_picker.getText().toString());
                                         buyTicketFirstStepFragment.setArguments(args);
 
 
@@ -426,7 +429,7 @@ public class ticketFragment extends Fragment {
         builder.setPositiveButton("Применить", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                int quantity = selectedAdultCount + selectedInfantCount + selectedTeenagerCount;
+                 quantity = selectedAdultCount + selectedInfantCount + selectedTeenagerCount;
 
                 // Обновляем текст на кнопке
                 String passengersText = String.format(Locale.getDefault(), "%d пассажиров", quantity);
