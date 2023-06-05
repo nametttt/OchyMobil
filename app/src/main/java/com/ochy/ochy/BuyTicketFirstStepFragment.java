@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -41,14 +42,19 @@ import com.ochy.ochy.cod.docsModel;
 import com.ochy.ochy.cod.getSplittedPathChild;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class BuyTicketFirstStepFragment extends Fragment {
 
     View docs_buy1, docs_buy2, docs_buy3, docs_buy4, docs_buy5;
-    custom_spinner passangers, newDocType, spin2, spin3, spin4, spin5;
+    custom_spinner passangers, newDocType, spin2, newDocType2, spin3, newDocType3, spin4,newDocType4, spin5, newDocType5;
     androidx.appcompat.widget.Toolbar mToolBar;
     EditText ps, citizen, number, surn, name, patron, birth;
+    ArrayList<docsModel> docInstance = new ArrayList<docsModel>();
+    int callCount = 0; // Счетчик вызовов getSelectedDocInstance()
+
 
     EditText ps2, citizen2, number2, surn2, name2, patron2, birth2;
     EditText ps3, citizen3, number3, surn3, name3, patron3, birth3;
@@ -60,13 +66,19 @@ public class BuyTicketFirstStepFragment extends Fragment {
     RadioGroup rd , rd2, rd3, rd4, rd5;
     LinearLayout ln, ln2, ln3, ln4, ln5;
 
-    String pass_numb;
+    String pass_numb, parentKey;
     ArrayAdapter<String> docAdapter;
 
     Button btn;
+    int need=1;
     View tick;
 
     DatabaseReference db;
+
+    Bundle args = new Bundle();
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,6 +105,7 @@ public class BuyTicketFirstStepFragment extends Fragment {
             String pl = args.getString("free_places");
             String dur = args.getString("duration");
             pass_numb = args.getString("pas");
+            parentKey = args.getString("parentKey");
             count = Integer.parseInt(pass_numb.split(" ")[0]);
 
             updateTextView(newText, put, vr, pl, dur, tick);
@@ -110,6 +123,11 @@ public class BuyTicketFirstStepFragment extends Fragment {
 
         citizen = docs_buy1.findViewById(R.id.docCitizen);
         newDocType = docs_buy1.findViewById(R.id.custom_spinner);
+
+        List<String> items = Arrays.asList("Паспорт", "Загран паспорт", "Свидетельство о рождении");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, items);
+        newDocType.setAdapter(adapter);
+
         number = docs_buy1.findViewById(R.id.docnumb);
         surn = docs_buy1.findViewById(R.id.docSurn);
         name = docs_buy1.findViewById(R.id.docName);
@@ -117,6 +135,8 @@ public class BuyTicketFirstStepFragment extends Fragment {
         birth = docs_buy1.findViewById(R.id.docBirth);
         rd = docs_buy1.findViewById(R.id.radio);
         ln = docs_buy1.findViewById(R.id.ln);
+
+
 
 
         ListView lst = passangers.findViewById(R.id.listview);
@@ -146,17 +166,91 @@ public class BuyTicketFirstStepFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BuyTicketSeconStepFragment buyTicketSeconStepFragment = new BuyTicketSeconStepFragment();
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.framelayout, buyTicketSeconStepFragment);
-                fragmentTransaction.addToBackStack("fl"); // Добавляем в Back Stack
 
-                Bundle args = new Bundle();
-                args.putInt("pas", Integer.parseInt(pass_numb.split(" ")[0]));
-                buyTicketSeconStepFragment.setArguments(args);
+                switch (need){
+                    case 1:
+                        if (!ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(passangers.getSelectedItemPosition());
+                            callCount++;
+                        }
+                        break;
+                    case 2:
+                        if (!ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(passangers.getSelectedItemPosition());
+                            callCount++;
+                        }
 
-                fragmentTransaction.commit();
+                        if (!ps2.getText().toString().isEmpty()|| !ps2.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin2.getSelectedItemPosition());
+                            callCount++;
+                        }
+                        break;
+                    case 3:
+                        if (!ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(passangers.getSelectedItemPosition());
+                            callCount++;
+                        }
+
+                        if (!ps2.getText().toString().isEmpty()|| !ps2.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin2.getSelectedItemPosition());
+                            callCount++;
+                        }
+
+                        if (!ps3.getText().toString().isEmpty()|| !ps3.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin3.getSelectedItemPosition());
+                            callCount++;
+                        }
+                        break;
+                    case 4:
+                        if (!ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(passangers.getSelectedItemPosition());
+                            callCount++;
+                        }
+
+                        if (!ps2.getText().toString().isEmpty()|| !ps2.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin2.getSelectedItemPosition());
+                            callCount++;
+                        }
+
+                        if (!ps3.getText().toString().isEmpty()|| !ps3.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin3.getSelectedItemPosition());
+                            callCount++;
+                        }
+
+                        if (!ps4.getText().toString().isEmpty()|| !ps4.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin4.getSelectedItemPosition());
+                            callCount++;
+                        }
+                        break;
+                    case 5:
+                        if (!ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(passangers.getSelectedItemPosition());
+                            callCount++;
+                        }
+
+                        if (!ps2.getText().toString().isEmpty()|| !ps2.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin2.getSelectedItemPosition());
+                            callCount++;
+                        }
+
+                        if (!ps3.getText().toString().isEmpty()|| !ps3.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin3.getSelectedItemPosition());
+                            callCount++;
+                        }
+
+                        if (!ps4.getText().toString().isEmpty()|| !ps4.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin4.getSelectedItemPosition());
+                            callCount++;
+                        }
+
+                        if (!ps5.getText().toString().isEmpty()|| !ps5.getText().toString().equals("Не выбрано")){
+                            getSelectedDocInstance(spin5.getSelectedItemPosition());
+                            callCount++;
+                        }
+                        break;
+                }
+
+
 
             }
         });
@@ -188,6 +282,7 @@ public class BuyTicketFirstStepFragment extends Fragment {
                     String initials =ps.docSurname+" "+ ps.docName.charAt(0) + "." + ps.docPatronymic.charAt(0) + ".";
                     docAdapter.add(ps.docType+" "+ initials);
                 }
+
 
             }
 
@@ -279,10 +374,22 @@ public class BuyTicketFirstStepFragment extends Fragment {
 
 
     private void passTickets(int count){
+
+        List<String>         items =  Arrays.asList("Паспорт", "Загран паспорт", "Свидетельство о рождении");
+
+        ArrayAdapter<String>         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, items);
         switch (count){
+
+            case 1:
+                spinnerSelectionNull(ps, citizen, number, surn, name, patron, birth, rd , ln);
+                need =1;
+                break;
             case 2:
                 docs_buy2.setVisibility(View.VISIBLE);
                 spin2 = docs_buy2.findViewById(R.id.passagers);
+                need =2;
+
+
                 ps2 = spin2.findViewById(R.id.spinnerEditText);
                 ps2.setHint("Пассажир");
 
@@ -299,17 +406,25 @@ public class BuyTicketFirstStepFragment extends Fragment {
                 rd2 = docs_buy2.findViewById(R.id.radio);
                 ln2 = docs_buy2.findViewById(R.id.ln);
 
+
+                newDocType2 = docs_buy2.findViewById(R.id.custom_spinner);
+                newDocType2.setAdapter(adapter);
+
                 spinnerSelectionNull(ps, citizen, number, surn, name, patron, birth, rd , ln);
                 spinnerSelectionNull(ps2 , citizen2 ,number2, surn2, name2, patron2, birth2, rd2, ln2 );
 
                 break;
             case 3:
+                need =3;
+
                 docs_buy2.setVisibility(View.VISIBLE);
                 docs_buy3.setVisibility(View.VISIBLE);
 
                 spin2 = docs_buy2.findViewById(R.id.passagers);
                 ps2 = spin2.findViewById(R.id.spinnerEditText);
                 ps2.setHint("Пассажир");
+
+
 
                 spin3 = docs_buy3.findViewById(R.id.passagers);
                 ps3 = spin3.findViewById(R.id.spinnerEditText);
@@ -346,6 +461,13 @@ public class BuyTicketFirstStepFragment extends Fragment {
                 ln2 = docs_buy2.findViewById(R.id.ln);
                 ln3 = docs_buy3.findViewById(R.id.ln);
 
+
+
+                newDocType2 = docs_buy2.findViewById(R.id.custom_spinner);
+                newDocType2.setAdapter(adapter);
+                newDocType3 = docs_buy3.findViewById(R.id.custom_spinner);
+                newDocType3.setAdapter(adapter);
+
                 spinnerSelectionNull(ps, citizen, number, surn, name, patron, birth, rd , ln);
                 spinnerSelectionNull(ps2 , citizen2 ,number2, surn2, name2, patron2, birth2, rd2, ln2 );
                 spinnerSelectionNull(ps3, citizen3, number3, surn3, name3, patron3, birth3, rd3 , ln3);
@@ -353,6 +475,7 @@ public class BuyTicketFirstStepFragment extends Fragment {
                 break;
 
             case 4:
+                need =4;
                 docs_buy2.setVisibility(View.VISIBLE);
                 docs_buy3.setVisibility(View.VISIBLE);
                 docs_buy4.setVisibility(View.VISIBLE);
@@ -410,6 +533,13 @@ public class BuyTicketFirstStepFragment extends Fragment {
                 ln3 = docs_buy3.findViewById(R.id.ln);
                 ln4 = docs_buy4.findViewById(R.id.ln);
 
+                newDocType2 = docs_buy2.findViewById(R.id.custom_spinner);
+                newDocType2.setAdapter(adapter);
+                newDocType3 = docs_buy3.findViewById(R.id.custom_spinner);
+                newDocType3.setAdapter(adapter);
+                newDocType4 = docs_buy4.findViewById(R.id.custom_spinner);
+                newDocType4.setAdapter(adapter);
+
                 spinnerSelectionNull(ps, citizen, number, surn, name, patron, birth, rd , ln);
                 spinnerSelectionNull(ps2 , citizen2 ,number2, surn2, name2, patron2, birth2, rd2, ln2 );
                 spinnerSelectionNull(ps3, citizen3, number3, surn3, name3, patron3, birth3, rd3 , ln3);
@@ -417,6 +547,7 @@ public class BuyTicketFirstStepFragment extends Fragment {
 
                 break;
             case 5:
+                need =5;
                 docs_buy2.setVisibility(View.VISIBLE);
                 docs_buy3.setVisibility(View.VISIBLE);
                 docs_buy4.setVisibility(View.VISIBLE);
@@ -494,8 +625,68 @@ public class BuyTicketFirstStepFragment extends Fragment {
                 spinnerSelectionNull(ps3, citizen3, number3, surn3, name3, patron3, birth3, rd3 , ln3);
                 spinnerSelectionNull(ps4, citizen4, number4, surn4, name4, patron4, birth4, rd4 , ln4);
                 spinnerSelectionNull(ps5, citizen5, number5, surn5, name5, patron5, birth5, rd5 , ln5);
+
+                newDocType2 = docs_buy2.findViewById(R.id.custom_spinner);
+                newDocType2.setAdapter(adapter);
+                newDocType3 = docs_buy3.findViewById(R.id.custom_spinner);
+                newDocType3.setAdapter(adapter);
+                newDocType4 = docs_buy4.findViewById(R.id.custom_spinner);
+                newDocType4.setAdapter(adapter);
+                newDocType5 = docs_buy4.findViewById(R.id.custom_spinner);
+                newDocType5.setAdapter(adapter);
                 break;
         }
     }
+
+    private  void getSelectedDocInstance(int selectedPosition) {
+        DatabaseReference selectedCardRef = db;
+        ArrayList<docsModel> currentDocInstance = new ArrayList<>(); // Список для текущего вызова
+        selectedCardRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int count =1;
+                for (DataSnapshot ds : snapshot.getChildren()) {
+
+                    docsModel selectedDoc = ds.getValue(docsModel.class);
+                    if (selectedDoc != null && count ==selectedPosition) {
+                        currentDocInstance.add(selectedDoc);
+                    }
+                    count++;
+                }
+                docInstance.addAll(currentDocInstance);
+
+                if (callCount == docInstance.size()) {
+                    // Добавление docInstance в args
+                    if (!docInstance.isEmpty()) {
+
+
+                        args.putParcelableArrayList("dssss", docInstance);
+
+                        BuyTicketSeconStepFragment buyTicketSeconStepFragment = new BuyTicketSeconStepFragment();
+                        FragmentManager fragmentManager = getParentFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.framelayout, buyTicketSeconStepFragment);
+                        fragmentTransaction.addToBackStack("fl"); // Добавляем в Back Stack
+
+                        args.putString("parentKey", parentKey);
+                        args.putInt("pasesr", Integer.parseInt(pass_numb.split(" ")[0]));
+                        buyTicketSeconStepFragment.setArguments(args);
+
+                        fragmentTransaction.commit();
+                        callCount =0;
+                    }
+
+                    // Здесь вы можете продолжить выполнение дополнительной логики после полного выполнения всех вызовов getSelectedDocInstance()
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+    }
+
 
 }

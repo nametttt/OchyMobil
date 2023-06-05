@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     MyCabFragment myCabFragment = new MyCabFragment();
     deleteDialog deleteDialog = new deleteDialog();
     CardFragment cardFragment = new CardFragment();
+    MyTicketsFragment myTicketsFragment = new MyTicketsFragment();
+
     HelpFragment helpFragment = new HelpFragment();
     BottomNavigationView bnv;
 
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
             pushFragments("ticket", ticketFragment);
+            pushFragments("myTicketsFragment", myTicketsFragment);
             pushFragments("profile", profileFragment);
             pushFragments("cab", myCabFragment);
             pushFragments("deleteDialog", deleteDialog);
@@ -91,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.dopomoga:
                     pushFragments("help", helpFragment);
+                    break;
+                case R.id.orders:
+                    pushFragments("myTicketsFragment", myTicketsFragment);
+                    break;
             }
             return true;
         };
@@ -113,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment deleteDialog = manager.findFragmentByTag("deleteDialog");
         Fragment cardFragment = manager.findFragmentByTag("cardFragment");
         Fragment helpFragment = manager.findFragmentByTag("help");
+        Fragment myTicketsFragment = manager.findFragmentByTag("myTicketsFragment");
 
 
 
@@ -132,10 +140,18 @@ public class MainActivity extends AppCompatActivity {
             ft.hide(helpFragment);
         }
 
+        if (myTicketsFragment !=null)
+            ft.hide(myTicketsFragment);
+
 
         if (tag == "profile") {
             if (profile != null)
                 ft.show(profile);
+        }
+
+        if (tag == "myTicketsFragment") {
+            if (myTicketsFragment != null)
+                ft.show(myTicketsFragment);
         }
 
         if (tag == "ticket") {

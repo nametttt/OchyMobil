@@ -34,7 +34,7 @@
         android:layout_height="wrap_content">
 
         <com.ochy.ochy.cod.custom_spinner
-            android:id="@+id/passagers"
+            android:id="@+id/cards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -65,7 +65,7 @@
             android:background="@drawable/settings"
             android:layout_height="wrap_content">
             <EditText
-                android:id="@+id/docnumb"
+                android:id="@+id/cardnumb"
                 android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,6 +91,7 @@
             android:layout_marginRight="15dp"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/carddate"
                 android:inputType="date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -111,7 +112,9 @@
 
                 android:layout_height="wrap_content">
                 <EditText
-                    android:inputType="date"
+                    android:id="@+id/cvc"
+                    android:inputType="numberPassword"
+                    android:maxLength="3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#FFF3E8"
@@ -130,11 +133,12 @@
             android:background="@drawable/settings"
             android:layout_height="wrap_content">
             <EditText
-                android:inputType="date"
+                android:id="@+id/cardname"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFF3E8"
-                android:hint="CW/CVC"
+                android:hint="Имя владельца на латынице"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray"
                 android:paddingLeft="10dp"

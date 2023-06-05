@@ -16,6 +16,10 @@ public class custom_spinner extends LinearLayout {
     private EditText spinnerEditText;
     private ListView spinnerListView;
     private ArrayAdapter<String> adapter;
+    private AdapterView.OnItemSelectedListener listener;
+    private int selectedItemPosition = -1;
+
+
 
     public custom_spinner(Context context) {
         super(context);
@@ -30,6 +34,14 @@ public class custom_spinner extends LinearLayout {
     public custom_spinner(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initializeViews(context);
+    }
+
+    public int getSelectedItemPosition() {
+        return selectedItemPosition;
+    }
+
+    private void setSelectedItemPosition(int position) {
+        selectedItemPosition = position;
     }
 
     private void initializeViews(Context context) {
@@ -56,6 +68,10 @@ public class custom_spinner extends LinearLayout {
                 String selectedItem = adapter.getItem(position);
                 spinnerEditText.setText(selectedItem);
                 spinnerListView.setVisibility(View.GONE);
+                setSelectedItemPosition(position); // Сохраняем позицию выбранного элемента
+                if (listener != null) {
+                    listener.onItemSelected(parent, view, position, id); // Вызываем обработчик выбора элемента, если задан
+                }
             }
         });
     }
@@ -63,5 +79,9 @@ public class custom_spinner extends LinearLayout {
     public void setAdapter(ArrayAdapter<String> adapter) {
         this.adapter = adapter;
         spinnerListView.setAdapter(adapter);
+    }
+
+    public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener listener) {
+        this.listener = listener;
     }
 }

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/tick_top_view">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/tick_picture"
+                        android:orientation="vertical"
+                        android:paddingVertical="20dp"
+                        >
+                        <TextView
+                            android:id="@+id/marsh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:text="Москва → Стамбул"
+                            android:textSize="20sp"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textAlignment="center"
+                            android:text="24 мая 15:00 → 24 мая 19:00"
+                            android:textSize="18sp"
+
+                            />
+
+                    </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ln"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="20dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#D8C7C7"
+                        android:text="Пассажир"
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/fi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="Яковлева Татьяна"
+                        android:textSize="18sp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/doctype"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#D8C7C7"
+                        android:layout_marginTop="10dp"
+                        android:text="Паспорт"
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/docnumb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="10020300303030"
+                        android:textSize="18sp"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#D8C7C7"
+                        android:layout_marginTop="10dp"
+                        android:text="Рейс"
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/flinumb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="1136"
+                        android:textSize="18sp"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#D8C7C7"
+                                android:text="Место"
+                                android:textSize="16sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/seat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:text="С1"
+                                android:textSize="18sp"
+
+                                />
+                        </LinearLayout>
+
+
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="0.5"
+                                android:layout_height="wrap_content"
+                                android:textColor="#E6D0C3"
+                                android:text="OCHY"
+                                android:gravity="end"
+                                android:layout_gravity="bottom"
+                                android:textAlignment="gravity"
+                                android:textSize="20sp"
+                                />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ln"
+                        android:orientation="vertical">
+                        <View android:layout_height="25dp" android:background="@drawable/dashed_line"
+                            android:layout_width="match_parent"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:text="Предупреждение: никому не передавайте данные своих билетов! Также не забудьте свои документы по пути в аэропорт  :) "
+                            android:textColor="#D8C7C7"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:layout_marginBottom="15dp"
+                            />
+
+                        <ImageView
+                            android:id="@+id/qr"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="20dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/qr"
+                            />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+</RelativeLayout>

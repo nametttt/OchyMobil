@@ -57,7 +57,7 @@
 
                 <include layout="@layout/seats_select" android:id="@+id/seats_select"/>
 
-                <include layout="@layout/payment_ticket"/>
+                <include layout="@layout/payment_ticket" android:id="@+id/payment"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_gravity="center"

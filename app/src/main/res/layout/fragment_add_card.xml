@@ -103,11 +103,11 @@
                         android:layout_height="wrap_content">
                             <EditText
                                 android:id="@+id/cardnum"
-                                android:inputType="number"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="#FFF3E8"
                                 android:hint="Номер карты"
+                                android:inputType="numberSigned"
                                 android:textColor="@color/black"
                                 android:textColorHint="@color/gray"
                                 android:paddingLeft="10dp"
@@ -155,6 +155,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="#FFF3E8"
+                                android:maxLength="3"
                                 android:hint="CW/CVC"
                                 android:textColor="@color/black"
                                 android:textColorHint="@color/gray"
@@ -177,6 +178,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="#FFF3E8"
                             android:inputType="text"
+                            android:textAllCaps="true"
                             android:hint="Имя владельца на латынице"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"

@@ -154,6 +154,7 @@ public class ticketFragment extends Fragment {
                                         String cost = flightDataList.getCost();
                                         Bundle args = new Bundle();
                                         args.putString("cost", cost);
+                                        args.putString("parentKey", parentKey);
                                         args.putString("marshr", flightDataList.getEzda());
                                         args.putString("time", flightDataList.getDate());
                                         args.putString("free_places", flightDataList.getPlaces());
@@ -163,7 +164,6 @@ public class ticketFragment extends Fragment {
 
 
                                         fragmentTransaction.commit();
-                                        return;
                                     }
                             }
                         }

@@ -1,6 +1,9 @@
 package com.ochy.ochy.cod;
 
-public class docsModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class docsModel implements Parcelable {
     public String docSurname;
     public String docName;
     public String docPatronymic;
@@ -80,5 +83,45 @@ public class docsModel {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(docSurname);
+        dest.writeString(docName);
+        dest.writeString(docPatronymic);
+        dest.writeString(docBirth);
+        dest.writeString(docCitizen);
+        dest.writeString(docNumber);
+        dest.writeString(sex);
+        dest.writeString(docType);
+    }
+
+    public static final Parcelable.Creator<docsModel> CREATOR = new Parcelable.Creator<docsModel>() {
+        @Override
+        public docsModel createFromParcel(Parcel source) {
+            return new docsModel(source);
+        }
+
+        @Override
+        public docsModel[] newArray(int size) {
+            return new docsModel[size];
+        }
+    };
+
+    private docsModel(Parcel source) {
+        docSurname = source.readString();
+        docName = source.readString();
+        docPatronymic = source.readString();
+        docBirth = source.readString();
+        docCitizen = source.readString();
+        docNumber = source.readString();
+        sex = source.readString();
+        docType = source.readString();
     }
 }

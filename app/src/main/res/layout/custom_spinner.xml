@@ -21,8 +21,10 @@
     <ListView
         android:id="@+id/spinnerListView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:visibility="gone"
+        android:divider="@color/gray"
+        android:dividerHeight="1dp"
         android:background="@color/bezh"/>
 
 </LinearLayout>

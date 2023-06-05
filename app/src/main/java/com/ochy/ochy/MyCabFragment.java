@@ -60,7 +60,6 @@ public class MyCabFragment extends Fragment {
                 patr.setText(user1.patronomyc);
                 email.setText(user1.email);
                 if (user1.tel == ""){
-                    return;
                 }
                 tel.setText(user1.tel);
                 //ref.child(pC.getSplittedPathChild(user.getEmail())).child("acc").updateChildren(map);
