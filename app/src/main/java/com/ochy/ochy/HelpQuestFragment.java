@@ -29,7 +29,6 @@ public class HelpQuestFragment extends Fragment {
         sixth = v.findViewById(R.id.six);
         seventh = v.findViewById(R.id.seven);
         Bundle args = new Bundle();
-        variant = args.getInt("variant");
 
         switch (variant){
             case 0:

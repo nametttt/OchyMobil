@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:text="Хочу полететь, но нет паспорта"
+                android:text="Почему оплата не проходит"
                 android:textStyle="bold"
                 android:textSize="18dp"
                 />
@@ -35,8 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:text="Летать по России можно не только по общегражданскому, но и по заграничному паспорту, а ещё по военному билету, временному удостоверению личности и другим документам. Смотрите весь список ниже на странице.
-"
+                android:text="Иногда продавец отклоняет оплату, если карта выпущена в одной стране, а оплата совершается из другой. Это происходит из‑за антифрода — специальной системы, которая следит за подозрительными транзакциями и выявляет потенциально мошеннические."
                 android:textSize="16dp"
                 />
         </LinearLayout>
@@ -83,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:text="Загран паспорт не готов, что делать?"
+                android:text="Банковские транзакции"
                 android:textStyle="bold"
                 android:textSize="18dp"
                 />
@@ -93,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:text="Если точно знаете написание имени и фамилии в новом загранпаспорте, можете смело вводить их при покупке билета. Вместо серии и номера напишите любые цифры. Когда паспорт будет готов, свяжитесь с продавцом, у которого купили билет, и попросите заменить данные на актуальные."
+                android:text="Если вашу банковскую транзакцию посчитают подозрительной, продавец свяжется с вами и попросит документы, подтверждающие, что билет оплачиваете вы, а не мошенники. После проверки продавец одобрит оплату и вышлет билет, если всё в порядке. Если нет — заказ аннулируют, а деньги вернут вам на счёт."
                 android:textSize="16dp"/>
         </LinearLayout>
     </LinearLayout>

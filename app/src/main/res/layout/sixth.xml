@@ -21,7 +21,6 @@
             android:background="@drawable/settings"
             android:orientation="vertical">
             <TextView
-                android:height="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -31,7 +30,6 @@
                 />
 
             <TextView
-                android:height="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
@@ -51,21 +49,19 @@
             android:background="@drawable/settings"
             android:orientation="vertical">
             <TextView
-                android:height="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:text="Как купить лбготные билеты"
+                android:text="О путешествиях"
                 android:textStyle="bold"
                 android:textSize="18dp"
                 />
 
             <TextView
-                android:height="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:text="Чаще всего авиакомпании продают билеты со скидками для определённых категорий пассажиров: пенсионеров, школьников или студентов, пассажиров с инвалидностью или с дополнительными потребностями здоровья, многодетных семьей, а также жителей Дальнего Востока."
+                android:text="Выбирая нас будьте уверены, что Ваше путешествие пройдет прекрасно. Полет на самолете - начальный или конечный этап путешествий. Только начиная свое путешествие Вы обретете невероятные ощущения, а заканчивая - лишь укрепите накопленные впечатления. Хороших путешествий!"
                 android:textSize="16dp"
                 />
         </LinearLayout>
@@ -79,21 +75,19 @@
             android:background="@drawable/settings"
             android:orientation="vertical">
             <TextView
-                android:height="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:text="Загран паспорт не готов, что делать?"
+                android:text="Комфорт путешествия"
                 android:textStyle="bold"
                 android:textSize="18dp"
                 />
 
             <TextView
-                android:height="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:text="Если точно знаете написание имени и фамилии в новом загранпаспорте, можете смело вводить их при покупке билета. Вместо серии и номера напишите любые цифры. Когда паспорт будет готов, свяжитесь с продавцом, у которого купили билет, и попросите заменить данные на актуальные."
+                android:text=" Конечно! Наши самолеты оснащены бизнес-классом, места очень удобны, а полет пройдет очень комфортно! Вам также предоставляется возможность покупки напитков и продуктов в самолете, все ради Вас."
                 android:textSize="16dp"/>
         </LinearLayout>
     </LinearLayout>

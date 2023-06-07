@@ -50,6 +50,7 @@ public class HelpFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putInt("varuant", 0);
+                helpQuestFragment.variant = 0;
                 helpQuestFragment.setArguments(args);
                 fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
                 fragmentTransaction.addToBackStack("help");
@@ -68,6 +69,7 @@ public class HelpFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putInt("varuant", 1);
+                helpQuestFragment.variant = 1;
                 helpQuestFragment.setArguments(args);
                 fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
                 fragmentTransaction.addToBackStack("help");
@@ -85,6 +87,7 @@ public class HelpFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putInt("varuant", 2);
+                helpQuestFragment.variant = 2;
                 helpQuestFragment.setArguments(args);
                 fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
                 fragmentTransaction.addToBackStack("help");
@@ -102,6 +105,7 @@ public class HelpFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putInt("varuant", 3);
+                helpQuestFragment.variant = 3;
                 helpQuestFragment.setArguments(args);
                 fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
                 fragmentTransaction.addToBackStack("help");
@@ -119,6 +123,8 @@ public class HelpFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putInt("varuant", 4);
+                helpQuestFragment.variant = 4;
+
                 helpQuestFragment.setArguments(args);
                 fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
                 fragmentTransaction.addToBackStack("help");
@@ -155,6 +161,7 @@ public class HelpFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putInt("varuant", 6);
+                helpQuestFragment.variant = 6;
                 helpQuestFragment.setArguments(args);
                 fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
                 fragmentTransaction.addToBackStack("help");

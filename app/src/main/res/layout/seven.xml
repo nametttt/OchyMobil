@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:text="Хочу полететь, но нет паспорта"
+                android:text="Перелеты с детьми"
                 android:textStyle="bold"
                 android:textSize="18dp"
                 />
@@ -35,8 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:text="Летать по России можно не только по общегражданскому, но и по заграничному паспорту, а ещё по военному билету, временному удостоверению личности и другим документам. Смотрите весь список ниже на странице.
-"
+                android:text="По правилам авиакомпаний, с одним взрослым может лететь только один младенец без места. Если взрослый один, а младенцев двое — одному из малышей придётся покупать детский билет с отдельным местом."
                 android:textSize="16dp"
                 />
         </LinearLayout>
@@ -55,8 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:text="Как купить лбготные билеты"
-                android:textStyle="bold"
+                android:text="Покупка билета только на ребенка"                android:textStyle="bold"
                 android:textSize="18dp"
                 />
 
@@ -65,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:text="Чаще всего авиакомпании продают билеты со скидками для определённых категорий пассажиров: пенсионеров, школьников или студентов, пассажиров с инвалидностью или с дополнительными потребностями здоровья, многодетных семьей, а также жителей Дальнего Востока."
+                android:text="Купить билет отдельно на ребёнка нельзя — только вместе с билетом для взрослого. Но многие авиакомпании предоставляют услугу сопровождения ребёнка под наблюдением перевозчика."
                 android:textSize="16dp"
                 />
         </LinearLayout>
@@ -83,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:text="Загран паспорт не готов, что делать?"
+                android:text="Может ли ребенок полететь один"
                 android:textStyle="bold"
                 android:textSize="18dp"
                 />
@@ -93,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:text="Если точно знаете написание имени и фамилии в новом загранпаспорте, можете смело вводить их при покупке билета. Вместо серии и номера напишите любые цифры. Когда паспорт будет готов, свяжитесь с продавцом, у которого купили билет, и попросите заменить данные на актуальные."
+                android:text="Дети в возрасте от 5 до 12 лет могут летать без сопровождения, малышей до двух лет по понятным причинам без взрослых в самолёт не посадят. А вот правила для детей с 2 до 5 лет у авиакомпаний разные, поэтому лучше проверять их на сайте вашего перевозчика перед покупкой."
                 android:textSize="16dp"/>
         </LinearLayout>
     </LinearLayout>

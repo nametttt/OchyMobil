@@ -225,7 +225,6 @@ public class AddDocFragment extends Fragment {
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         // Обработка выбранной даты
                         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-
                         String selectedDate = dateFormat.format(calendar.getTime());
                         docBirht.setText(selectedDate);
                     }

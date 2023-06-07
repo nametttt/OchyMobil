@@ -218,7 +218,6 @@ public class EditDocsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getSplittedPathChild ge = new getSplittedPathChild();
-
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 DatabaseReference updateRef = FirebaseDatabase.getInstance().getReference().child("user").child(pC.getSplittedPathChild(FirebaseAuth.getInstance().getCurrentUser().getEmail())).child("docs").child(PATH).getRef();
                 FragmentManager fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
@@ -226,8 +225,6 @@ public class EditDocsFragment extends Fragment {
                 updateRef.removeValue();
             }
         });
-
-
     }
 
 
@@ -236,14 +233,11 @@ public class EditDocsFragment extends Fragment {
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-
         DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        // Обработка выбранной даты
                         SimpleDateFormat  dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-
                         String selectedDate = dateFormat.format(calendar.getTime());
                         docBirht.setText(selectedDate);
                     }

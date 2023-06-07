@@ -51,7 +51,6 @@
                     <TextView
                         android:id="@+id/chastye"
                         android:layout_marginTop="18dp"
-                        android:height="30dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -71,7 +70,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:height="30dp"
 
                         android:text="Оформление билета"
                         android:textSize="18dp"
@@ -186,7 +184,6 @@
                     android:layout_marginHorizontal="10dp"
                     android:orientation="vertical"
                     android:padding="10dp"
-                    android:minHeight="30dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/settings">
 
@@ -196,7 +193,6 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:layout_marginTop="5dp"
-                        android:height="30dp"
                         android:text="Написать на почту"
                         android:drawableLeft="@drawable/mail_ico"
                         android:drawablePadding="10dp"

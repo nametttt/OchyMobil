@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="10dp"
             android:layout_weight="0.2"
@@ -30,8 +30,7 @@
                 />
 
             <TextView
-                android:height="30dp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
                 android:text="Проверьте, пожалуйста, папку “Спам” в своем почтовом ящике - часто потерянные письма оказываются именно там. Более того в приложении есть раздел для отображения всех билетов пользователя, в том числе активных."
@@ -49,7 +48,6 @@
             android:background="@drawable/settings"
             android:orientation="vertical">
             <TextView
-                android:height="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -59,7 +57,6 @@
                 />
 
             <TextView
-                android:height="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
