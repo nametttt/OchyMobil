@@ -2,6 +2,9 @@ package com.ochy.ochy;
 
 import static android.content.ContentValues.TAG;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -61,6 +64,11 @@ public class reset_password extends Fragment {
         ((AppCompatActivity)getActivity()).setSupportActionBar(mToolBar);
         ((MainActivity)getActivity()).getSupportActionBar().setTitle("Изменение пароля");
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Drawable navIcon = mToolBar.getNavigationIcon();
+        if (navIcon != null) {
+            navIcon.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN);
+            mToolBar.setNavigationIcon(navIcon);
+        }
         setHasOptionsMenu(true);
         mainActivity = (MainActivity)getActivity();
         btn = v.findViewById(R.id.saveData);

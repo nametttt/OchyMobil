@@ -172,7 +172,8 @@
                             android:layout_marginHorizontal="20dp"
                             android:text="Предупреждение: никому не передавайте данные своих билетов! Также не забудьте свои документы по пути в аэропорт  :) "
                             android:textColor="#D8C7C7"
-                            android:textAlignment="center"
+                            android:textAlignment="gravity"
+                            android:gravity="left"
                             android:textSize="16sp"
                             android:layout_marginBottom="15dp"
                             />

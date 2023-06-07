@@ -88,8 +88,9 @@
                     android:id="@+id/date_picker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:text="Даты"
+                    android:textAllCaps="false"
                     android:textColor="@color/hz"
                     android:drawablePadding="15dp"
                     android:outlineProvider="none"
@@ -101,15 +102,14 @@
                     android:id="@+id/passajers_picker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.4"
                     android:text="1 пассажир"
+                    android:textAllCaps="false"
                     android:layout_marginLeft="20dp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:drawablePadding="15dp"
+                    android:drawablePadding="10dp"
                     android:outlineProvider="none"
                     android:drawableLeft="@drawable/userticket"
-
                     android:padding="15dp"
                     android:background="@drawable/btncreugl"/>
 
@@ -118,9 +118,6 @@
         </TableLayout>
 
     </TableLayout>
-
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/res"
             android:layout_width="match_parent"
@@ -128,7 +125,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="15dp"
             android:padding="5dp"
-
+            android:visibility="gone"
             android:dividerHeight="10dp"
             android:divider="@color/bezh"
             android:background="@drawable/find_tickets_fragment"/>

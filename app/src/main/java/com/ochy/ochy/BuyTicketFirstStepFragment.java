@@ -22,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,7 +52,12 @@ public class BuyTicketFirstStepFragment extends Fragment {
     View docs_buy1, docs_buy2, docs_buy3, docs_buy4, docs_buy5;
     custom_spinner passangers, newDocType, spin2, newDocType2, spin3, newDocType3, spin4,newDocType4, spin5, newDocType5;
     androidx.appcompat.widget.Toolbar mToolBar;
+    ArrayList<docsModel> currentDocInstance = new ArrayList<>(); // Список для текущего вызова
+
     EditText ps, citizen, number, surn, name, patron, birth;
+
+    EditText docType1, docType2;
+    int not_included =0;
     ArrayList<docsModel> docInstance = new ArrayList<docsModel>();
     int callCount = 0; // Счетчик вызовов getSelectedDocInstance()
 
@@ -64,6 +70,7 @@ public class BuyTicketFirstStepFragment extends Fragment {
     TextView passData1, passData2, passData3, passData4, passData5;
 
     RadioGroup rd , rd2, rd3, rd4, rd5;
+    RadioButton male1, female1, male2, female2, male3, female3;
     LinearLayout ln, ln2, ln3, ln4, ln5;
 
     String pass_numb, parentKey;
@@ -102,7 +109,7 @@ public class BuyTicketFirstStepFragment extends Fragment {
             String newText = args.getString("cost");
             String put = args.getString("marshr");
             String vr = args.getString("time");
-            String pl = args.getString("free_places");
+            String pl = args.getString("free_places") + " мест";
             String dur = args.getString("duration");
             pass_numb = args.getString("pas");
             parentKey = args.getString("parentKey");
@@ -156,7 +163,7 @@ public class BuyTicketFirstStepFragment extends Fragment {
                 FragmentManager fragmentManager = getParentFragmentManager();
                 fragmentManager.popBackStack();
                 if (fragmentManager.getBackStackEntryCount() > 0) {
-                    fragmentManager.popBackStack("flight",0);
+                    fragmentManager.popBackStack("buyTicket",0);
                 }
             }
         });
@@ -166,39 +173,139 @@ public class BuyTicketFirstStepFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String sex,sex2,sex3;
 
                 switch (need){
                     case 1:
-                        if (!ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
+                        if(ps.getText().toString().isEmpty()){
+                            sex = male1.isChecked()?"Мужской":"Женский";
+                            docInstance.add(new docsModel(surn.getText().toString() , name.getText().toString(), patron.getText().toString(),
+                                    birth.getText().toString(), citizen.getText().toString(), number.getText().toString(), sex,
+                                    docType1.getText().toString()));
+                            getSelectedDocInstance(0);
+                        }
+                        else if (ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
                             getSelectedDocInstance(passangers.getSelectedItemPosition());
                             callCount++;
                         }
+                        else if(citizen.getText().toString().isEmpty()||  ps.getText().toString().isEmpty() || number.getText().toString().isEmpty()|| surn.getText().toString().isEmpty() ||
+                            name.getText().toString().isEmpty() || patron.getText().toString().isEmpty() || birth.getText().toString().isEmpty()|| (!male1.isChecked() && !female1.isChecked() ) )
+                        {
+                            Toast.makeText(getContext(), "Вы выбрали не все данные", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else {
+                            sex = male1.isChecked()?"Мужской":"Женский";
+                            docInstance.add(new docsModel(surn.getText().toString() , name.getText().toString(), patron.getText().toString(),
+                                    birth.getText().toString(), citizen.getText().toString(), number.getText().toString(), sex,
+                                    docType1.getText().toString()));
+                        }
+
                         break;
                     case 2:
-                        if (!ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
+
+                        if(ps.getText().toString().isEmpty()){
+                            sex = male1.isChecked()?"Мужской":"Женский";
+                            docInstance.add(new docsModel(surn.getText().toString() , name.getText().toString(), patron.getText().toString(),
+                                    birth.getText().toString(), citizen.getText().toString(), number.getText().toString(), sex,
+                                    docType1.getText().toString()));
+                            not_included++;
+                        }
+                        else if (!(ps.getText().toString().isEmpty())|| !(ps.getText().toString().equals("Не выбрано"))){
                             getSelectedDocInstance(passangers.getSelectedItemPosition());
                             callCount++;
                         }
 
-                        if (!ps2.getText().toString().isEmpty()|| !ps2.getText().toString().equals("Не выбрано")){
+                        else if(citizen.getText().toString().isEmpty()||  ps.getText().toString().isEmpty() || number.getText().toString().isEmpty()|| surn.getText().toString().isEmpty() ||
+                                name.getText().toString().isEmpty() || patron.getText().toString().isEmpty() || birth.getText().toString().isEmpty()|| (!male1.isChecked() && !female1.isChecked() ) )
+                        {
+                            Toast.makeText(getContext(), "Вы выбрали не все данные", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+
+
+                        String s = ps2.getText().toString();
+
+
+                        if(ps2.getText().toString().isEmpty()){
+                            sex2 = male2.isChecked()?"Мужской":"Женский";
+                            docInstance.add(new docsModel(surn2.getText().toString() , name2.getText().toString(), patron2.getText().toString(),
+                                    birth2.getText().toString(), citizen2.getText().toString(), number2.getText().toString(), sex2,
+                                    docType2.getText().toString()));
+                            not_included++;
+                        }
+                        else if (!(ps2.getText().toString().isEmpty()) || !(ps2.getText().toString().equals("Не выбрано"))){
                             getSelectedDocInstance(spin2.getSelectedItemPosition());
                             callCount++;
+                            return;
                         }
+
+                        else if(citizen2.getText().toString().isEmpty()||  ps2.getText().toString().isEmpty() || number2.getText().toString().isEmpty()|| surn2.getText().toString().isEmpty() ||
+                                name2.getText().toString().isEmpty() || patron2.getText().toString().isEmpty() || birth2.getText().toString().isEmpty()|| (!male2.isChecked() && !female2.isChecked() ) )
+                        {
+                            Toast.makeText(getContext(), "Вы выбрали не все данные", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
                         break;
                     case 3:
-                        if (!ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
+                        if (ps.getText().toString().isEmpty()|| !ps.getText().toString().equals("Не выбрано")){
                             getSelectedDocInstance(passangers.getSelectedItemPosition());
                             callCount++;
                         }
 
-                        if (!ps2.getText().toString().isEmpty()|| !ps2.getText().toString().equals("Не выбрано")){
+                        else if(citizen.getText().toString().isEmpty()||  ps.getText().toString().isEmpty() || number.getText().toString().isEmpty()|| surn.getText().toString().isEmpty() ||
+                                name.getText().toString().isEmpty() || patron.getText().toString().isEmpty() || birth.getText().toString().isEmpty()|| (!male1.isChecked() && !female1.isChecked() ) )
+                        {
+                            Toast.makeText(getContext(), "Вы выбрали не все данные", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        else {
+                            sex = male1.isChecked()?"Мужской":"Женский";
+                            docInstance.add(new docsModel(surn.getText().toString() , name.getText().toString(), patron.getText().toString(),
+                                    birth.getText().toString(), citizen.getText().toString(), number.getText().toString(), sex,
+                                    ps.getText().toString()));
+                        }
+
+                        if (ps2.getText().toString().isEmpty()|| !ps2.getText().toString().equals("Не выбрано")){
                             getSelectedDocInstance(spin2.getSelectedItemPosition());
                             callCount++;
                         }
 
-                        if (!ps3.getText().toString().isEmpty()|| !ps3.getText().toString().equals("Не выбрано")){
+                        else if(citizen2.getText().toString().isEmpty()||  ps2.getText().toString().isEmpty() || number2.getText().toString().isEmpty()|| surn2.getText().toString().isEmpty() ||
+                                name2.getText().toString().isEmpty() || patron2.getText().toString().isEmpty() || birth2.getText().toString().isEmpty()|| (!male2.isChecked() && !female2.isChecked() ) )
+                        {
+                            Toast.makeText(getContext(), "Вы выбрали не все данные", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        else {
+                            sex2 = male2.isChecked()?"Мужской":"Женский";
+                            docInstance.add(new docsModel(surn2.getText().toString() , name2.getText().toString(), patron2.getText().toString(),
+                                    birth2.getText().toString(), citizen2.getText().toString(), number2.getText().toString(), sex2,
+                                    ps2.getText().toString()));
+                        }
+
+
+                        if (ps3.getText().toString().isEmpty()|| !ps3.getText().toString().equals("Не выбрано")){
                             getSelectedDocInstance(spin3.getSelectedItemPosition());
                             callCount++;
+                        }
+
+                        else if(citizen3.getText().toString().isEmpty()||  ps3.getText().toString().isEmpty() || number3.getText().toString().isEmpty()|| surn3.getText().toString().isEmpty() ||
+                                name3.getText().toString().isEmpty() || patron3.getText().toString().isEmpty() || birth3.getText().toString().isEmpty()|| (!male3.isChecked() && !female3.isChecked() ) )
+                        {
+                            Toast.makeText(getContext(), "Вы выбрали не все данные", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        else {
+                            sex3 = male3.isChecked()?"Мужской":"Женский";
+                            docInstance.add(new docsModel(surn3.getText().toString() , name3.getText().toString(), patron3.getText().toString(),
+                                    birth3.getText().toString(), citizen3.getText().toString(), number3.getText().toString(), sex3,
+                                    ps3.getText().toString()));
                         }
                         break;
                     case 4:
@@ -381,7 +488,11 @@ public class BuyTicketFirstStepFragment extends Fragment {
         switch (count){
 
             case 1:
+                male1 = docs_buy1.findViewById(R.id.male);
+                female1 = docs_buy1.findViewById(R.id.female);
+
                 spinnerSelectionNull(ps, citizen, number, surn, name, patron, birth, rd , ln);
+                docType1 = newDocType.findViewById(R.id.spinnerEditText);
                 need =1;
                 break;
             case 2:
@@ -406,9 +517,18 @@ public class BuyTicketFirstStepFragment extends Fragment {
                 rd2 = docs_buy2.findViewById(R.id.radio);
                 ln2 = docs_buy2.findViewById(R.id.ln);
 
+                male1 = docs_buy1.findViewById(R.id.male);
+                female1 = docs_buy1.findViewById(R.id.female);
+
+                male2 = docs_buy2.findViewById(R.id.male);
+                female2 = docs_buy2.findViewById(R.id.female);
+
 
                 newDocType2 = docs_buy2.findViewById(R.id.custom_spinner);
                 newDocType2.setAdapter(adapter);
+                docType2 = newDocType2.findViewById(R.id.spinnerEditText);
+
+
 
                 spinnerSelectionNull(ps, citizen, number, surn, name, patron, birth, rd , ln);
                 spinnerSelectionNull(ps2 , citizen2 ,number2, surn2, name2, patron2, birth2, rd2, ln2 );
@@ -472,6 +592,15 @@ public class BuyTicketFirstStepFragment extends Fragment {
                 spinnerSelectionNull(ps2 , citizen2 ,number2, surn2, name2, patron2, birth2, rd2, ln2 );
                 spinnerSelectionNull(ps3, citizen3, number3, surn3, name3, patron3, birth3, rd3 , ln3);
 
+
+                male1 = docs_buy1.findViewById(R.id.male);
+                female1 = docs_buy1.findViewById(R.id.female);
+
+                male2 = docs_buy2.findViewById(R.id.male);
+                female2 = docs_buy2.findViewById(R.id.female);
+
+                male3 = docs_buy3.findViewById(R.id.male);
+                female3 = docs_buy3.findViewById(R.id.female);
                 break;
 
             case 4:
@@ -640,23 +769,27 @@ public class BuyTicketFirstStepFragment extends Fragment {
 
     private  void getSelectedDocInstance(int selectedPosition) {
         DatabaseReference selectedCardRef = db;
-        ArrayList<docsModel> currentDocInstance = new ArrayList<>(); // Список для текущего вызова
         selectedCardRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int count =1;
-                for (DataSnapshot ds : snapshot.getChildren()) {
+                if(callCount != 0) {
 
-                    docsModel selectedDoc = ds.getValue(docsModel.class);
-                    if (selectedDoc != null && count ==selectedPosition) {
-                        currentDocInstance.add(selectedDoc);
+
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+
+                        docsModel selectedDoc = ds.getValue(docsModel.class);
+                        if (selectedDoc != null && count == selectedPosition) {
+                            currentDocInstance.add(selectedDoc);
+                        }
+                        count++;
                     }
-                    count++;
+                    docInstance.addAll(currentDocInstance);
                 }
-                docInstance.addAll(currentDocInstance);
-
-                if (callCount == docInstance.size()) {
+                if ((callCount == docInstance.size()- not_included) || callCount==0) {
                     // Добавление docInstance в args
+                    callCount =0;
+
                     if (!docInstance.isEmpty()) {
 
 
@@ -665,19 +798,19 @@ public class BuyTicketFirstStepFragment extends Fragment {
                         BuyTicketSeconStepFragment buyTicketSeconStepFragment = new BuyTicketSeconStepFragment();
                         FragmentManager fragmentManager = getParentFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.framelayout, buyTicketSeconStepFragment);
-                        fragmentTransaction.addToBackStack("fl"); // Добавляем в Back Stack
-
                         args.putString("parentKey", parentKey);
                         args.putInt("pasesr", Integer.parseInt(pass_numb.split(" ")[0]));
                         buyTicketSeconStepFragment.setArguments(args);
+                        fragmentTransaction.replace(R.id.framelayout, buyTicketSeconStepFragment);
+
+
 
                         fragmentTransaction.commit();
-                        callCount =0;
                     }
 
                     // Здесь вы можете продолжить выполнение дополнительной логики после полного выполнения всех вызовов getSelectedDocInstance()
                 }
+                else  docInstance.clear();
 
             }
 

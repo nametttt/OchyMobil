@@ -122,7 +122,7 @@ public class ticketFragment extends Fragment {
             }
         });
 
-        addDataOnRecyclerView();
+//        addDataOnRecyclerView();
 
 
         recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
@@ -142,12 +142,16 @@ public class ticketFragment extends Fragment {
                             for (DataSnapshot parentSnapshot : dataSnapshot.getChildren()) {
                                     flightModel firebaseItem = parentSnapshot.getValue(flightModel.class);
                                     if (convertedItem.equals(firebaseItem)) {
+                                        int coun = 36;
+
+                                        for (String s: firebaseItem.seats){
+                                            if(!s.isEmpty()) coun--;
+                                        }
                                         String parentKey = parentSnapshot.getKey();
                                         BuyTicketFirstStepFragment buyTicketFirstStepFragment = new BuyTicketFirstStepFragment();
                                         FragmentManager fragmentManager = getParentFragmentManager();
                                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                        fragmentTransaction.replace(R.id.framelayout, buyTicketFirstStepFragment);
-                                        fragmentTransaction.addToBackStack("flight"); // Добавляем в Back Stack
+
 
                                         flightDataList flightDataList = convertToFlightDataList(convertedItem);
 
@@ -157,12 +161,12 @@ public class ticketFragment extends Fragment {
                                         args.putString("parentKey", parentKey);
                                         args.putString("marshr", flightDataList.getEzda());
                                         args.putString("time", flightDataList.getDate());
-                                        args.putString("free_places", flightDataList.getPlaces());
+                                        args.putString("free_places", String.valueOf(coun));
                                         args.putString("duration",flightDataList.getDuration());
                                         args.putString("pas", passajers_picker.getText().toString());
                                         buyTicketFirstStepFragment.setArguments(args);
-
-
+                                        fragmentTransaction.replace(R.id.framelayout, buyTicketFirstStepFragment);
+                                        fragmentTransaction.addToBackStack("buyTicket");
                                         fragmentTransaction.commit();
                                     }
                             }
@@ -251,6 +255,8 @@ public class ticketFragment extends Fragment {
                     arrayList.clear();
                 }
                 for (DataSnapshot ds : snapshot.getChildren()) {
+                    if (fromCity.getText().toString().isEmpty() && toCity.getText().toString().isEmpty()){
+
                     flightModel ps = ds.getValue(flightModel.class);
                     assert ps != null;
 
@@ -301,8 +307,174 @@ public class ticketFragment extends Fragment {
 
                     arrayList.add(new flightDataList(ps.cost + " ₽", ps.otpr_city + " ➔ " + ps.prib_city, formattedDateTime1 + " ➔ " + formattedDateTime2, emptyCountString + " мест", difference));
                 }
-                adapter.notifyDataSetChanged();
+                    else{
+                        flightModel ps = ds.getValue(flightModel.class);
+                        if(!fromCity.getText().toString().isEmpty() && toCity.getText().toString().isEmpty()){
+                            if(ps!=null && ps.otpr_city.equals(fromCity.getText().toString())){
+                                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+                                LocalDateTime dateTime1 = LocalDateTime.parse(ps.date_otpr, formatter);
+                                LocalDateTime dateTime2 = LocalDateTime.parse(ps.date_prib, formatter);
+
+                                DateTimeFormatter f = DateTimeFormatter.ofPattern("d MMMM H:mm", new Locale("ru"));
+                                String formattedDateTime1 = dateTime1.format(f);
+                                String formattedDateTime2 = dateTime2.format(f);
+
+                                Duration duration = Duration.between(dateTime1, dateTime2);
+                                long days = duration.toDays();
+                                long hours = duration.toHours() % 24;
+                                long minutes = duration.toMinutes() % 60;
+
+                                List<String> seats = ps.seats;
+                                int emptyCount = 0;
+
+                                for (String seat : seats) {
+                                    if (seat.equals("")) {
+                                        emptyCount++;
+                                    }
+                                }
+                                String difference;
+                                String emptyCountString = String.valueOf(emptyCount);
+
+                                if (days > 0) {
+                                    difference = String.format("%d дней", days);
+                                    if (hours > 0) {
+                                        if (minutes > 0) {
+                                            difference += String.format(", %d часов, %d минут", hours, minutes);
+                                        } else {
+                                            difference += String.format(", %d часов", hours);
+                                        }
+                                    }
+                                } else if (hours > 0) {
+                                    if (minutes > 0) {
+                                        difference = String.format("%d часов, %d минут", hours, minutes);
+                                    } else {
+                                        difference = String.format("%d часов", hours);
+                                    }
+                                } else if (minutes > 0) {
+                                    difference = String.format("%d минут", minutes);
+                                } else {
+                                    difference = "0 минут";
+                                }
+
+                                arrayList.add(new flightDataList(ps.cost + " ₽", ps.otpr_city + " ➔ " + ps.prib_city, formattedDateTime1 + " ➔ " + formattedDateTime2, emptyCountString + " мест", difference));
+                            }
+                        }
+                        else if (fromCity.getText().toString().isEmpty() && !toCity.getText().toString().isEmpty()){
+                            if (ps!=null && ps.prib_city.equals(toCity.getText().toString())){
+                                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+                                LocalDateTime dateTime1 = LocalDateTime.parse(ps.date_otpr, formatter);
+                                LocalDateTime dateTime2 = LocalDateTime.parse(ps.date_prib, formatter);
+
+                                DateTimeFormatter f = DateTimeFormatter.ofPattern("d MMMM H:mm", new Locale("ru"));
+                                String formattedDateTime1 = dateTime1.format(f);
+                                String formattedDateTime2 = dateTime2.format(f);
+
+                                Duration duration = Duration.between(dateTime1, dateTime2);
+                                long days = duration.toDays();
+                                long hours = duration.toHours() % 24;
+                                long minutes = duration.toMinutes() % 60;
+
+                                List<String> seats = ps.seats;
+                                int emptyCount = 0;
+
+                                for (String seat : seats) {
+                                    if (seat.equals("")) {
+                                        emptyCount++;
+                                    }
+                                }
+                                String difference;
+                                String emptyCountString = String.valueOf(emptyCount);
+
+                                if (days > 0) {
+                                    difference = String.format("%d дней", days);
+                                    if (hours > 0) {
+                                        if (minutes > 0) {
+                                            difference += String.format(", %d часов, %d минут", hours, minutes);
+                                        } else {
+                                            difference += String.format(", %d часов", hours);
+                                        }
+                                    }
+                                } else if (hours > 0) {
+                                    if (minutes > 0) {
+                                        difference = String.format("%d часов, %d минут", hours, minutes);
+                                    } else {
+                                        difference = String.format("%d часов", hours);
+                                    }
+                                } else if (minutes > 0) {
+                                    difference = String.format("%d минут", minutes);
+                                } else {
+                                    difference = "0 минут";
+                                }
+
+                                arrayList.add(new flightDataList(ps.cost + " ₽", ps.otpr_city + " ➔ " + ps.prib_city, formattedDateTime1 + " ➔ " + formattedDateTime2, emptyCountString + " мест", difference));
+                            }
+                        }
+                        else if (!fromCity.getText().toString().isEmpty() && !toCity.getText().toString().isEmpty()){
+                            if (ps!=null && ps.prib_city.equals(toCity.getText().toString()) && ps.otpr_city.equals(fromCity.getText().toString())){
+                                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+                                LocalDateTime dateTime1 = LocalDateTime.parse(ps.date_otpr, formatter);
+                                LocalDateTime dateTime2 = LocalDateTime.parse(ps.date_prib, formatter);
+
+                                DateTimeFormatter f = DateTimeFormatter.ofPattern("d MMMM H:mm", new Locale("ru"));
+                                String formattedDateTime1 = dateTime1.format(f);
+                                String formattedDateTime2 = dateTime2.format(f);
+
+                                Duration duration = Duration.between(dateTime1, dateTime2);
+                                long days = duration.toDays();
+                                long hours = duration.toHours() % 24;
+                                long minutes = duration.toMinutes() % 60;
+
+                                List<String> seats = ps.seats;
+                                int emptyCount = 0;
+
+                                for (String seat : seats) {
+                                    if (seat.equals("")) {
+                                        emptyCount++;
+                                    }
+                                }
+                                String difference;
+                                String emptyCountString = String.valueOf(emptyCount);
+
+                                if (days > 0) {
+                                    difference = String.format("%d дней", days);
+                                    if (hours > 0) {
+                                        if (minutes > 0) {
+                                            difference += String.format(", %d часов, %d минут", hours, minutes);
+                                        } else {
+                                            difference += String.format(", %d часов", hours);
+                                        }
+                                    }
+                                } else if (hours > 0) {
+                                    if (minutes > 0) {
+                                        difference = String.format("%d часов, %d минут", hours, minutes);
+                                    } else {
+                                        difference = String.format("%d часов", hours);
+                                    }
+                                } else if (minutes > 0) {
+                                    difference = String.format("%d минут", minutes);
+                                } else {
+                                    difference = "0 минут";
+                                }
+
+                                arrayList.add(new flightDataList(ps.cost + " ₽", ps.otpr_city + " ➔ " + ps.prib_city, formattedDateTime1 + " ➔ " + formattedDateTime2, emptyCountString + " мест", difference));
+                            }
+                        }
+
+
+
+                    }
+
             }
+                adapter.notifyDataSetChanged();
+
+                if (adapter.getItemCount()==0){
+                    recyclerView.setVisibility(View.GONE);
+                }
+                else recyclerView.setVisibility(View.VISIBLE);
+
+            }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

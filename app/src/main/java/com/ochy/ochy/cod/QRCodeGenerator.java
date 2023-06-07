@@ -77,8 +77,8 @@ public class QRCodeGenerator {
         String qrCodeData = generateQRCodeData(airlineTicket);
 
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
-        int width = 500;
-        int height = 500;
+        int width = 100;
+        int height = 100;
 
         try {
             BitMatrix bitMatrix = qrCodeWriter.encode(qrCodeData, BarcodeFormat.QR_CODE, width, height);

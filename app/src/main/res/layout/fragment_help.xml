@@ -49,7 +49,7 @@
 
 
                     <TextView
-                        android:id="@+id/lk"
+                        android:id="@+id/chastye"
                         android:layout_marginTop="18dp"
                         android:height="30dp"
                         android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                         android:background="@android:color/darker_gray"/>
 
                     <TextView
-                        android:id="@+id/card"
+                        android:id="@+id/ofrml_bileta"
                         android:layout_marginTop="18dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -84,6 +84,7 @@
                         android:background="@android:color/darker_gray"/>
 
                     <TextView
+                        android:id="@+id/docs_neccesary"
                         android:layout_marginTop="18dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -99,6 +100,7 @@
                         android:background="@android:color/darker_gray"/>
 
                     <TextView
+                        android:id="@+id/raice_cancel"
                         android:layout_marginTop="18dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -114,6 +116,7 @@
                         android:background="@android:color/darker_gray"/>
 
                     <TextView
+                        android:id="@+id/bilets_delete"
                         android:layout_marginTop="18dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -129,6 +132,7 @@
                         android:background="@android:color/darker_gray"/>
 
                     <TextView
+                        android:id="@+id/oputesh"
                         android:layout_marginTop="18dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -143,6 +147,7 @@
                         android:layout_height="1dp"
                         android:background="@android:color/darker_gray"/>
                     <TextView
+                        android:id="@+id/perelsdetmi"
                         android:layout_marginTop="18dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -168,6 +173,7 @@
 
 
                     <TextView
+                        android:id="@+id/aviacomp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -193,6 +199,7 @@
                 android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@+id/mail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bezh"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:layout_weight="0.4"
+            android:background="@drawable/settings"
+            android:orientation="vertical">
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Возвраты в рамках мобилизации"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                />
+
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:text="Единого правила, по которым авиакомпании возвращают мобилизованным деньги за билеты, нет. Для начала обратитесь к продавцу с документом, удостоверяющим личность, и документом, подтверждающим мобилизационное предписание. Что делать дальше, подскажет продавец билета, — у разных авиакомпаний могут быть разные правила."
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:layout_marginVertical="20dp"
+            android:padding="10dp"
+
+            android:background="@drawable/settings"
+            android:orientation="vertical">
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Как вернуть билет, если отменили рейс"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                />
+
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:text="Иногда продавец отклоняет оплату, если карта выпущена в одной стране, а оплата совершается из другой. "
+                android:textSize="16dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/settings"
+            android:orientation="vertical">
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Как вернуть деньги на  российские карты"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                />
+
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:text="С марта 2022 года на некоторые российские банки наложили санкции, а международные платёжные системы Mastercard и Visa приостановили работу в России. Вернуть деньги за билеты на их карты теперь сложно. Вот что можно сделать, чтобы поскорее прояснить ситуацию с возвратом"
+                android:textSize="16dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

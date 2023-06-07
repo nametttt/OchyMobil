@@ -73,7 +73,7 @@ public class add_flight extends Fragment {
                 String tableName = UUID.randomUUID().toString();
 
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference("flight").child(tableName).getRef();
-                List<String> seats = new ArrayList<>(Collections.nCopies(36, ""));
+                List<String> seats = new ArrayList<>(Collections.nCopies(35, ""));
                 flightModel flight = new flightModel(otprcity.getText().toString(),
                         dateotpr.getText().toString(),
                         pribcity.getText().toString(),

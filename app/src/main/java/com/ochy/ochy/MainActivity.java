@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     MyTicketsFragment myTicketsFragment = new MyTicketsFragment();
 
     HelpFragment helpFragment = new HelpFragment();
+    BuyTicketSeconStepFragment buyTicketSeconStepFragment = new BuyTicketSeconStepFragment();
     BottomNavigationView bnv;
 
     ArrayList<docDataList> arrayList;
@@ -90,7 +91,13 @@ public class MainActivity extends AppCompatActivity {
                     pushFragments("profile", profileFragment);
                     break;
                 case R.id.search:
-                    pushFragments("ticket", ticketFragment);
+                    //pushFragments("ticket", ticketFragment);
+
+                    ticketFragment ticketFragment = new ticketFragment();
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.framelayout, ticketFragment);
+                    fragmentTransaction.commit();
                     break;
                 case R.id.dopomoga:
                     pushFragments("help", helpFragment);
@@ -121,11 +128,14 @@ public class MainActivity extends AppCompatActivity {
         Fragment cardFragment = manager.findFragmentByTag("cardFragment");
         Fragment helpFragment = manager.findFragmentByTag("help");
         Fragment myTicketsFragment = manager.findFragmentByTag("myTicketsFragment");
+        Fragment buyTicketSeconStepFragment = manager.findFragmentByTag("buyTicketSeconStepFragment");
 
 
 
         if (profile != null)
             ft.hide(profile);
+        if (buyTicketSeconStepFragment!=null)
+            ft.hide(buyTicketSeconStepFragment);
         if (ticket != null)
             ft.hide(ticket);
         if (cab !=null)
@@ -147,6 +157,11 @@ public class MainActivity extends AppCompatActivity {
         if (tag == "profile") {
             if (profile != null)
                 ft.show(profile);
+        }
+
+        if (tag == "buyTicketSeconStepFragment") {
+            if (buyTicketSeconStepFragment != null)
+                ft.show(buyTicketSeconStepFragment);
         }
 
         if (tag == "myTicketsFragment") {
@@ -178,6 +193,8 @@ public class MainActivity extends AppCompatActivity {
             if (helpFragment != null)
                 ft.show(helpFragment);
         }
+
+
         ft.commitAllowingStateLoss();
     }
 

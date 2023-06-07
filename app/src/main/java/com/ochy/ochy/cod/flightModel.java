@@ -62,7 +62,7 @@ public class flightModel {
 
     private static List<String> generateSeats() {
         List<String> seats = new ArrayList<>();
-        for (int i = 1; i <= 36; i++) {
+        for (int i = 0; i <= 36; i++) {
             seats.add("");
         }
         return seats;

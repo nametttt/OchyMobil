@@ -3,6 +3,7 @@ package com.ochy.ochy;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,9 +16,20 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ochy.ochy.cod.cardsDataList;
 import com.ochy.ochy.cod.docDataList;
+import com.ochy.ochy.cod.docsModel;
+import com.ochy.ochy.cod.getSplittedPathChild;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +79,43 @@ public class docAdapterListView  extends ArrayAdapter<docDataList> {
         text.setText(currentNumberPosition.getDocType());
         textView1.setText(currentNumberPosition.getDocDocFIO());
 
+
+        currentItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSplittedPathChild ge = new getSplittedPathChild();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("user").child(ge.getSplittedPathChild(user.getEmail())).child("docs");
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int index = 0;
+                        for (DataSnapshot ps: snapshot.getChildren()){
+                           if (position == index){
+                                String path = ps.getKey();
+                               EditDocsFragment editDocsFragment = new EditDocsFragment();
+                                editDocsFragment.PATH = path;
+                               FragmentManager fragmentManager = ((MainActivity)getContext()).getSupportFragmentManager();
+                               FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                               // Replace the current fragment with the new fragment
+                               fragmentTransaction.replace(R.id.framelayout, editDocsFragment);
+                               // Add the transaction to the back stack (optional)
+                               fragmentTransaction.addToBackStack(null);
+                               // Commit the transaction
+                               fragmentTransaction.commit();
+
+                           }
+                           index++;
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
 
 
 

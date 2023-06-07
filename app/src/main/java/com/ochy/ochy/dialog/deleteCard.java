@@ -1,7 +1,6 @@
 package com.ochy.ochy.dialog;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -12,23 +11,30 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ochy.ochy.R;
 import com.ochy.ochy.cod.getSplittedPathChild;
 
+public class deleteCard extends DialogFragment {
+    public String path;
 
-public class deleteDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity(), R.style.MyAlertDialogTheme);
-        builder.setTitle("Удаление профиля")
-                .setMessage("Профиль нельзя восстановить");
+        builder.setTitle("Удаление карту")
+                .setMessage("Карту можно восстановить");
 
 // Создаем отдельный layout для кнопок
         LinearLayout layout = new LinearLayout(requireActivity());
@@ -49,11 +55,10 @@ public class deleteDialog extends DialogFragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSplittedPathChild g = new getSplittedPathChild();
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("user").child(g.getSplittedPathChild(user.getEmail()));
+                getSplittedPathChild getSplittedPathChild = new getSplittedPathChild();
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("user").child(getSplittedPathChild.getSplittedPathChild(FirebaseAuth.getInstance().getCurrentUser().getEmail())).child("cards").child(path);
                 ref.removeValue();
-                user.delete();
+
                 dismiss();
             }
         });

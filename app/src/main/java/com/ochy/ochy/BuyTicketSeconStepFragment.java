@@ -249,10 +249,11 @@ public class BuyTicketSeconStepFragment extends Fragment {
                         }
 
                         Toast.makeText(getActivity(), "Билет успешно куплен!", Toast.LENGTH_SHORT).show();
-                        MyTicketsFragment myTicketsFragment = new MyTicketsFragment();
                         FragmentManager fragmentManager = getParentFragmentManager();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.framelayout, myTicketsFragment);
+                        fragmentManager.popBackStack();
+                        if (fragmentManager.getBackStackEntryCount() > 0) {
+                            fragmentManager.popBackStack("buyTicket",0);
+                        }
                     }
 
                     @Override
@@ -402,13 +403,6 @@ public class BuyTicketSeconStepFragment extends Fragment {
         });
 
 
-
-
-
-        selectedCheckBox();
-        addDataOnListView();
-        spinnerSelectionNull();
-
         DatabaseReference seatsRef = FirebaseDatabase.getInstance().getReference().child("flight").child(parentKey).child("seats");
 
         seatsRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -429,6 +423,13 @@ public class BuyTicketSeconStepFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+
+
+        selectedCheckBox();
+        addDataOnListView();
+        spinnerSelectionNull();
+
+
     }
 
 
@@ -437,7 +438,7 @@ public class BuyTicketSeconStepFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 String chId = getResources().getResourceEntryName(buttonView.getId());
-                int numb = Integer.parseInt(chId.split("_")[1]);
+                int numb = Integer.parseInt(chId.split("_")[1])-1;
                 Object o = numb;
 
                 if(!buttonView.isChecked()){

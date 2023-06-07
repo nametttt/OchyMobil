@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bezh"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:layout_weight="0.2"
+            android:background="@drawable/settings"
+            android:orientation="vertical">
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Мне не пришел билет. Что делать?"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                />
+
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:text="Проверьте, пожалуйста, папку “Спам” в своем почтовом ящике - часто потерянные письма оказываются именно там. Более того в приложении есть раздел для отображения всех билетов пользователя, в том числе активных."
+                android:textSize="16dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:layout_marginVertical="20dp"
+            android:padding="10dp"
+
+            android:background="@drawable/settings"
+            android:orientation="vertical">
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Как вернуть билет?"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                />
+
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:text="
+Если ваш рейс отменили, свяжитесь с продавцом и узнайте всё про условия возврата. Вам вернут деньги за билет или предложат оформить возврат в виде ваучера на будущие перелёты."
+                android:textSize="16dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/settings"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="5dp"
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Как исправить ошибку в данных"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                />
+
+            <TextView
+                android:height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:text="Часто ошибку можно исправить самостоятельно по телефону кол‑центра или в личном кабинете на сайте авиакомпании. В некоторых случаях вас попросят доплатить — стоимость зависит от количества исправлений. Все условия можно уточнить у оператора кол‑центра или на сайте компании."
+                android:textSize="16dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
