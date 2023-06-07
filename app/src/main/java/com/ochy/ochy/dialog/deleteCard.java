@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -58,6 +59,7 @@ public class deleteCard extends DialogFragment {
                 getSplittedPathChild getSplittedPathChild = new getSplittedPathChild();
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("user").child(getSplittedPathChild.getSplittedPathChild(FirebaseAuth.getInstance().getCurrentUser().getEmail())).child("cards").child(path);
                 ref.removeValue();
+                Toast.makeText(getActivity(), "Карта успешно удалена!", Toast.LENGTH_SHORT).show();
 
                 dismiss();
             }

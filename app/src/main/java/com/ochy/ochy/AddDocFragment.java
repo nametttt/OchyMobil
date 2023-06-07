@@ -1,5 +1,6 @@
 package com.ochy.ochy;
 
+import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -17,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -30,8 +32,11 @@ import com.ochy.ochy.cod.custom_spinner;
 import com.ochy.ochy.cod.docsModel;
 import com.ochy.ochy.cod.getSplittedPathChild;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 
@@ -120,6 +125,20 @@ public class AddDocFragment extends Fragment {
         docName = v.findViewById(R.id.docName);
         docPatr = v.findViewById(R.id.docPatron);
         docBirht = v.findViewById(R.id.docBirth);
+
+
+
+
+        docBirht.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePicker();
+            }
+        });
+
+
+
+
         docCitizen =v.findViewById(R.id.docCitizen);
 
         ArrayAdapter<String> st = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, countries);
@@ -190,6 +209,29 @@ public class AddDocFragment extends Fragment {
 
             }
         });
+    }
+
+
+
+    private void showDatePicker() {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        // Обработка выбранной даты
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+
+                        String selectedDate = dateFormat.format(calendar.getTime());
+                        docBirht.setText(selectedDate);
+                    }
+                }, year, month, dayOfMonth);
+
+        datePickerDialog.show();
     }
 
 

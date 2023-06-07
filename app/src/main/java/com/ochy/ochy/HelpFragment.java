@@ -22,7 +22,7 @@ import com.ochy.ochy.cod.flightDataList;
 public class HelpFragment extends Fragment {
 
     LinearLayout ln;
-    TextView chastye, ofrml_bileta,docs_neccesary,raice_cancel,bilets_delete, oputesh,perelsdetmi,aviacomp;
+    TextView chastye, ofrml_bileta,docs_neccesary,raice_cancel,bilets_delete, oputesh,perelsdetmi;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,7 +40,6 @@ public class HelpFragment extends Fragment {
         bilets_delete = v.findViewById(R.id.bilets_delete);
         oputesh = v.findViewById(R.id.oputesh);
         perelsdetmi = v.findViewById(R.id.perelsdetmi);
-        aviacomp = v.findViewById(R.id.aviacomp);
         chastye.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +102,59 @@ public class HelpFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putInt("varuant", 3);
+                helpQuestFragment.setArguments(args);
+                fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
+                fragmentTransaction.addToBackStack("help");
+                fragmentTransaction.commit();
+            }
+        });
+
+        bilets_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HelpQuestFragment helpQuestFragment = new HelpQuestFragment();
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+
+                Bundle args = new Bundle();
+                args.putInt("varuant", 4);
+                helpQuestFragment.setArguments(args);
+                fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
+                fragmentTransaction.addToBackStack("help");
+                fragmentTransaction.commit();
+            }
+        });
+
+
+        oputesh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HelpQuestFragment helpQuestFragment = new HelpQuestFragment();
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+
+                Bundle args = new Bundle();
+                args.putInt("varuant", 5);
+                helpQuestFragment.setArguments(args);
+                fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
+                fragmentTransaction.addToBackStack("help");
+                fragmentTransaction.commit();
+            }
+        });
+
+
+        perelsdetmi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HelpQuestFragment helpQuestFragment = new HelpQuestFragment();
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+
+                Bundle args = new Bundle();
+                args.putInt("varuant", 6);
                 helpQuestFragment.setArguments(args);
                 fragmentTransaction.replace(R.id.framelayout, helpQuestFragment);
                 fragmentTransaction.addToBackStack("help");

@@ -162,26 +162,7 @@
                         android:layout_height="1dp"
                         android:background="@android:color/darker_gray"/>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:orientation="vertical"
-                    android:padding="10dp"
-                    android:minHeight="30dp"
-                    android:background="@drawable/settings">
 
-
-                    <TextView
-                        android:id="@+id/aviacomp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text="Авиакомпания"
-                        android:layout_marginTop="5dp"
-                        android:height="30dp"
-                        android:textSize="18dp"/>
-                   </LinearLayout>
                 </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

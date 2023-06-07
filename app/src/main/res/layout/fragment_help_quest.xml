@@ -9,6 +9,9 @@
    <include layout="@layout/second_help" android:id="@+id/secon_help" android:visibility="gone" />
    <include layout="@layout/third_help" android:id="@+id/third_help" android:visibility="gone"/>
    <include layout="@layout/forth_help" android:id="@+id/foutrh_help" android:visibility="gone"/>
+   <include layout="@layout/fifth" android:id="@+id/fif" android:visibility="gone"/>
+   <include layout="@layout/sixth" android:id="@+id/six" android:visibility="gone"/>
+   <include layout="@layout/seven" android:id="@+id/seven" android:visibility="gone"/>
 
 
 </FrameLayout>

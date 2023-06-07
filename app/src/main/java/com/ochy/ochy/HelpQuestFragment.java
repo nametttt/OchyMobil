@@ -25,6 +25,9 @@ public class HelpQuestFragment extends Fragment {
         second = v.findViewById(R.id.secon_help);
         third = v.findViewById(R.id.third_help);
         fouth = v.findViewById(R.id.foutrh_help);
+        fifth = v.findViewById(R.id.fif);
+        sixth = v.findViewById(R.id.six);
+        seventh = v.findViewById(R.id.seven);
         Bundle args = new Bundle();
         variant = args.getInt("variant");
 
@@ -47,15 +50,15 @@ public class HelpQuestFragment extends Fragment {
                 break;
 
             case 4:
-
+                fifth.setVisibility(View.VISIBLE);
                 break;
 
             case 5:
-
+                sixth.setVisibility(View.VISIBLE);
                 break;
 
             case 6:
-
+                seventh.setVisibility(View.VISIBLE);
                 break;
 
             case 7:
