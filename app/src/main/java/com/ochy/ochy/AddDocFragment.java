@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -39,7 +40,9 @@ public class AddDocFragment extends Fragment {
     custom_spinner customSpinner;
     Button add;
     EditText docSurn, docName, docPatr, docBirht,
-        docCitizen, docNumber;
+         docNumber;
+
+    AutoCompleteTextView docCitizen;
     RadioButton male, female;
 
     private String splittedPathChild;
@@ -54,15 +57,73 @@ public class AddDocFragment extends Fragment {
     }
 
     private  void init (View v){
+        String[] countries = {
+                "Австралия",
+                "Австрия",
+                "Албания",
+                "Алжир",
+                "Ангола",
+                "Аргентина",
+                "Армения",
+                "Афганистан",
+                "Бангладеш",
+                "Беларусь",
+                "Бельгия",
+                "Болгария",
+                "Боливия",
+                "Бразилия",
+                "Великобритания",
+                "Венгрия",
+                "Венесуэла",
+                "Вьетнам",
+                "Гаити",
+                "Гана",
+                "Германия",
+                "Гондурас",
+                "Греция",
+                "Грузия",
+                "Дания",
+                "Доминиканская Республика",
+                "Египет",
+                "Израиль",
+                "Индия",
+                "Индонезия",
+                "Иордания",
+                "Иран",
+                "Ирландия",
+                "Исландия",
+                "Испания",
+                "Италия",
+                "Казахстан",
+                "Камерун",
+                "Канада",
+                "Кения",
+                "Китай",
+                "Колумбия",
+                "Коста-Рика",
+                "Кот-д'Ивуар",
+                "Куба",
+
+                "Россия",
+                "Латвия",
+                "Ливан",
+                "Ливия",
+                "Литва",
+                "Лихтенштейн",
+                "Люксембург"
+                // Добавьте остальные страны в массив
+        };
+
+
         add = v.findViewById(R.id.add);
         docSurn = v.findViewById(R.id.docSurn);
         docName = v.findViewById(R.id.docName);
         docPatr = v.findViewById(R.id.docPatron);
         docBirht = v.findViewById(R.id.docBirth);
         docCitizen =v.findViewById(R.id.docCitizen);
-        male = v.findViewById(R.id.male);
-        female = v.findViewById(R.id.female);
-        docNumber = v.findViewById(R.id.docNumber);
+
+        ArrayAdapter<String> st = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, countries);
+        docCitizen.setAdapter(st);
 
         mToolBar = v.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(mToolBar);

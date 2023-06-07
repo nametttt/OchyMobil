@@ -11,12 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,8 +37,9 @@ public class EditDocsFragment extends Fragment {
     custom_spinner customSpinner;
     Button add, otkl;
     public String PATH="";
+    AutoCompleteTextView docCitizen;
     EditText docSurn, docName, docPatr, docBirht,
-            docCitizen, docNumber;
+             docNumber;
     RadioButton male, female;
 
     private String splittedPathChild;
@@ -50,6 +53,64 @@ public class EditDocsFragment extends Fragment {
     }
 
     private void init(View v){
+
+        String[] countries = {
+                "Австралия",
+                "Австрия",
+                "Албания",
+                "Алжир",
+                "Ангола",
+                "Аргентина",
+                "Армения",
+                "Афганистан",
+                "Бангладеш",
+                "Беларусь",
+                "Бельгия",
+                "Болгария",
+                "Боливия",
+                "Бразилия",
+                "Великобритания",
+                "Венгрия",
+                "Венесуэла",
+                "Вьетнам",
+                "Гаити",
+                "Гана",
+                "Германия",
+                "Гондурас",
+                "Греция",
+                "Грузия",
+                "Дания",
+                "Доминиканская Республика",
+                "Египет",
+                "Израиль",
+                "Индия",
+                "Индонезия",
+                "Иордания",
+                "Иран",
+                "Ирландия",
+                "Исландия",
+                "Испания",
+                "Италия",
+                "Казахстан",
+                "Камерун",
+                "Канада",
+                "Кения",
+                "Китай",
+                "Колумбия",
+                "Коста-Рика",
+                "Кот-д'Ивуар",
+                "Куба",
+                "Россия",
+                "Кувейт",
+                "Латвия",
+                "Ливан",
+                "Ливия",
+                "Литва",
+                "Лихтенштейн",
+                "Люксембург"
+                // Добавьте остальные страны в массив
+        };
+
         getSplittedPathChild pC = new getSplittedPathChild();
         add = v.findViewById(R.id.add);
         docSurn = v.findViewById(R.id.docSurn);
@@ -57,6 +118,8 @@ public class EditDocsFragment extends Fragment {
         docPatr = v.findViewById(R.id.docPatron);
         docBirht = v.findViewById(R.id.docBirth);
         docCitizen =v.findViewById(R.id.docCitizen);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, countries);
+        docCitizen.setAdapter(adapter);
         male = v.findViewById(R.id.male);
         female = v.findViewById(R.id.female);
         docNumber = v.findViewById(R.id.docNumber);
@@ -65,8 +128,8 @@ public class EditDocsFragment extends Fragment {
 
 
         List<String> items = Arrays.asList("Паспорт", "Загран паспорт", "Свидетельство о рождении");
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, items);
-        customSpinner.setAdapter(adapter);
+        ArrayAdapter<String> st = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, items);
+        customSpinner.setAdapter(st);
         EditText spinnerEditText = customSpinner.findViewById(R.id.spinnerEditText);
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("user").child(pC.getSplittedPathChild(FirebaseAuth.getInstance().getCurrentUser().getEmail())).child("docs").child(PATH).getRef();
@@ -140,8 +203,13 @@ public class EditDocsFragment extends Fragment {
         otkl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getSplittedPathChild ge = new getSplittedPathChild();
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference updateRef = FirebaseDatabase.getInstance().getReference().child("user").child(pC.getSplittedPathChild(FirebaseAuth.getInstance().getCurrentUser().getEmail())).child("docs").child(PATH).getRef();
                 FragmentManager fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
                 fragmentManager.popBackStack();
+                updateRef.removeValue();
             }
         });
 

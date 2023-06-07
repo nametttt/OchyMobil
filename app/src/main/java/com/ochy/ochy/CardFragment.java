@@ -130,7 +130,11 @@ public class CardFragment extends Fragment {
                 for (DataSnapshot ds: snapshot.getChildren()){
                     cardModel ps = ds.getValue(cardModel.class);
                     assert ps!=null;
-                    arrayList.add(new cardsDataList(ps.cardNumb));
+                    String cardNumber = ps.cardNumb;
+                    int length = cardNumber.length();
+
+                    String hiddenNumber = "XXXX-XXXX-XXXX-" + cardNumber.substring(length - 4);
+                    arrayList.add(new cardsDataList(hiddenNumber));
 
                 }
                 list.notifyDataSetChanged();
